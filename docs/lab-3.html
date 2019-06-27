@@ -1,15 +1,14 @@
 <!DOCTYPE html>
-<html >
-
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Level 1 Data Skills</title>
-  <meta name="description" content="ug1-practical-materials">
-  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Lab 3 Lab 3 | Level 1 Data Skills</title>
+  <meta name="description" content="ug1-practical-materials" />
+  <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Level 1 Data Skills" />
+  <meta property="og:title" content="Lab 3 Lab 3 | Level 1 Data Skills" />
   <meta property="og:type" content="book" />
   
   
@@ -17,25 +16,26 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Level 1 Data Skills" />
+  <meta name="twitter:title" content="Lab 3 Lab 3 | Level 1 Data Skills" />
   
   <meta name="twitter:description" content="ug1-practical-materials" />
   
 
-<meta name="author" content="psyTeachR">
+<meta name="author" content="psyTeachR" />
 
 
-<meta name="date" content="2019-06-26">
+<meta name="date" content="2019-06-27" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
 <link rel="prev" href="lab-2.html">
 <link rel="next" href="lab-4.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
@@ -67,7 +67,7 @@ a.sourceLine { text-indent: -1em; padding-left: 1em; }
 pre.numberSource a.sourceLine
   { position: relative; left: -4em; }
 pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
+  { content: attr(title);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
     border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
@@ -228,7 +228,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8" data-path="lab-8.html"><a href="lab-8.html"><i class="fa fa-check"></i><b>8</b> Lab 8</a><ul>
 <li class="chapter" data-level="8.1" data-path="lab-8.html"><a href="lab-8.html#pre-class-activity-4"><i class="fa fa-check"></i><b>8.1</b> Pre-class activity</a><ul>
 <li class="chapter" data-level="8.1.1" data-path="lab-8.html"><a href="lab-8.html#discrete-or-continuous-datasets"><i class="fa fa-check"></i><b>8.1.1</b> Discrete or Continuous Datasets</a></li>
-<li class="chapter" data-level="8.1.2" data-path="lab-8.html"><a href="lab-8.html#normal-distribution"><i class="fa fa-check"></i><b>8.1.2</b> Normal distribution</a></li>
+<li class="chapter" data-level="8.1.2" data-path="lab-8.html"><a href="lab-8.html#normal-distributions"><i class="fa fa-check"></i><b>8.1.2</b> Normal Distributions</a></li>
 </ul></li>
 <li class="chapter" data-level="8.2" data-path="lab-8.html"><a href="lab-8.html#inclass-activity"><i class="fa fa-check"></i><b>8.2</b> Inclass activity</a><ul>
 <li class="chapter" data-level="8.2.1" data-path="lab-8.html"><a href="lab-8.html#normal-distribution-probability"><i class="fa fa-check"></i><b>8.2.1</b> Normal Distribution Probability</a></li>
@@ -263,7 +263,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="lab-3" class="section level1">
-<h1><span class="header-section-number">Chapter 3</span> Lab 3</h1>
+<h1><span class="header-section-number">Lab 3</span> Lab 3</h1>
 <div class="info">
 <p>
 In this lab we move on from reading data in, joining tibbles and selecting variables of interest to becoming familiar with the Wickham 6 and the functionality of tidyverse. Practice is an important part of PsyTeachR so in our level 1 program we ask students to repeat tasks across the semester in the pre-class, in-class and assessments. This principle is carried over into the student’s independent study practices. We encourage students to do prep independently but also to come along to the practice sessions where space is open for students to work on lab tasks and assessments independently or discuss in groups with GTAs present to guide and support if needed. This is an important part of our community building and creating a safe space to practice, make mistakes and develop skills. This lab also contains the first of a selection of short informal videos as support materials. For this lab, the course lead talks through the verbs demonstrating their functions with data in real time. As these videos were specific to our level 1 cohort we haven’t shared them here but should emphasise that they received very positive feedback from the students who liked being able to return to them as they practiced their tidyverse skills.
@@ -273,7 +273,7 @@ In this lab we move on from reading data in, joining tibbles and selecting varia
 <h2><span class="header-section-number">3.1</span> Pre-class activity</h2>
 <ul>
 <li>Watch Heather’s video on intro to tidyverse</li>
-<li>Work through the tidyverse book which talks you through the purpose of tidyverse using examples on a dataset called <code>babynames</code>. This package is installed on the lab computers but you can also <code>install.packages(&quot;babynames&quot;)</code> on your own personal computer if you want to prep for the lab at home.</li>
+<li>Work through the tidyverse book which talks you through the purpose of tidyverse using examples on a dataset called <code>babynames</code>. This package is installed on the lab computers but you can also <code>install.packages("babynames")</code> on your own personal computer if you want to prep for the lab at home.</li>
 </ul>
 <p>Tidyverse (<a href="https://www.tidyverse.org/" class="uri">https://www.tidyverse.org/</a>) is a collection of R packages created by world-famous data scientist Hadley Wickham.</p>
 <p>Tidyverse contains six core packages: dplyr , tidyr , readr , purrr , ggplot2 , and tibble. If you’ve ever typed library(tidyverse) into R, you will have seen that it loads in all of these packages in one go. Within these six core packages, you should be able to find everything you need to analyse your data.</p>
@@ -300,37 +300,37 @@ In this lab we move on from reading data in, joining tibbles and selecting varia
 <div id="activity-1-packages-and-data" class="section level3">
 <h3><span class="header-section-number">3.2.1</span> Activity 1: Packages and data</h3>
 <p>Open up tidyverse and read in the data</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a>
-<a class="sourceLine" id="cb8-2" data-line-number="2">dat &lt;-<span class="st"> </span><span class="kw">read_csv</span> (<span class="st">&#39;files/ahi-cesd.csv&#39;</span>)</a>
-<a class="sourceLine" id="cb8-3" data-line-number="3">pinfo &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&#39;files/participant-info.csv&#39;</span>)</a>
-<a class="sourceLine" id="cb8-4" data-line-number="4">all_dat &lt;-<span class="st"> </span><span class="kw">inner_join</span>(dat, pinfo, <span class="dt">by=</span><span class="st">&#39;id&#39;</span>, <span class="st">&#39;intervention&#39;</span>)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)
+dat &lt;-<span class="st"> </span><span class="kw">read_csv</span> (<span class="st">&#39;files/ahi-cesd.csv&#39;</span>)
+pinfo &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&#39;files/participant-info.csv&#39;</span>)
+all_dat &lt;-<span class="st"> </span><span class="kw">inner_join</span>(dat, pinfo, <span class="dt">by=</span><span class="st">&#39;id&#39;</span>, <span class="st">&#39;intervention&#39;</span>)</code></pre>
 <p>Now lets get busy using our tidyverse verbs…</p>
 </div>
 <div id="activity-2-select" class="section level3">
 <h3><span class="header-section-number">3.2.2</span> Activity 2: Select</h3>
 <p>Select the columns all_dat, ahiTotal, cesdTotal, sex, age, educ, income, occasion, elapsed.days from the data and create a variable called <code>summarydata</code>.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1">summarydata &lt;-<span class="st"> </span><span class="kw">select</span>(all_dat, ahiTotal, cesdTotal, sex, age, educ, income, occasion, elapsed.days)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">summarydata &lt;-<span class="st"> </span><span class="kw">select</span>(all_dat, ahiTotal, cesdTotal, sex, age, educ, income, occasion, elapsed.days)</code></pre>
 </div>
 <div id="activity-3-arrange" class="section level3">
 <h3><span class="header-section-number">3.2.3</span> Activity 3: Arrange</h3>
 <p>Arrange the data in the variable created above (<code>summarydata</code>) by ahiTotal with lowest score first.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1">ahi_asc &lt;-<span class="st"> </span><span class="kw">arrange</span>(summarydata, <span class="dt">by =</span> ahiTotal)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">ahi_asc &lt;-<span class="st"> </span><span class="kw">arrange</span>(summarydata, <span class="dt">by =</span> ahiTotal)</code></pre>
 </div>
 <div id="activity-4-filter" class="section level3">
 <h3><span class="header-section-number">3.2.4</span> Activity 4: Filter</h3>
 <p>Filter the data <code>ahi_desc</code> by taking out those who are over 65 years of age.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1">age_65max &lt;-<span class="st"> </span><span class="kw">filter</span>(ahi_asc, age <span class="op">&lt;</span><span class="st"> </span><span class="dv">65</span>)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">age_65max &lt;-<span class="st"> </span><span class="kw">filter</span>(ahi_asc, age <span class="op">&lt;</span><span class="st"> </span><span class="dv">65</span>)</code></pre>
 </div>
 <div id="activity-5-summarise" class="section level3">
 <h3><span class="header-section-number">3.2.5</span> Activity 5: Summarise</h3>
 <p>Then, use summarise to create a new variable <code>data_median</code>, which calculates the median ahiTotal score in this grouped data and assign it a table head called <code>median_score</code>.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1">data_median &lt;-<span class="st"> </span><span class="kw">summarise</span>(age_65max, <span class="dt">median_score =</span> <span class="kw">median</span>(ahiTotal))</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">data_median &lt;-<span class="st"> </span><span class="kw">summarise</span>(age_65max, <span class="dt">median_score =</span> <span class="kw">median</span>(ahiTotal))</code></pre>
 </div>
 <div id="activity-6-group_by" class="section level3">
 <h3><span class="header-section-number">3.2.6</span> Activity 6: Group_by</h3>
 <p>Group the data stored in the variable <code>age_65max</code> by sex, and store it in <code>data_sex</code> then use mutate to create a new column called Happiness which categorises participants based on whether they score above the median ahiTotal score for females.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1">data_sex &lt;-<span class="st"> </span><span class="kw">group_by</span>(age_65max, sex)</a>
-<a class="sourceLine" id="cb13-2" data-line-number="2">happy_female &lt;-<span class="st"> </span><span class="kw">mutate</span>(data_sex, <span class="dt">Happiness_Female =</span> (ahiTotal <span class="op">&gt;</span><span class="st"> </span><span class="dv">74</span>))</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">data_sex &lt;-<span class="st"> </span><span class="kw">group_by</span>(age_65max, sex)
+happy_female &lt;-<span class="st"> </span><span class="kw">mutate</span>(data_sex, <span class="dt">Happiness_Female =</span> (ahiTotal <span class="op">&gt;</span><span class="st"> </span><span class="dv">74</span>))</code></pre>
 
 </div>
 </div>
@@ -446,10 +446,9 @@ gitbook.start({
 "google": false,
 "linkedin": false,
 "weibo": false,
-"instapper": false,
+"instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"],
-"instapaper": false
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -457,6 +456,10 @@ gitbook.start({
 "size": 2
 },
 "edit": {
+"link": null,
+"text": null
+},
+"history": {
 "link": null,
 "text": null
 },
@@ -475,7 +478,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');
     script.src = src;

@@ -30,12 +30,18 @@ When you read journal articles or when you are working with data in the lab, it 
 
 We have introduced these concepts in a little more depth as we are moving onto lab 8 and normal distribution probability so this will help with understanding this concept in relation to binomial probability and the different types of data involved.
 
-**Probability Recap** Binomial distributions are based on scenarios where the outcome can only be 1 of 2 options e.g. heads or tails whereas normal distributions are based on continuous data e.g. height or age where you can score anywhere along a continuum. For example, you could describe someone as 21.5 years old and 176cm tall.  
+**Probability Recap** Binomial distributions are based on scenarios where the outcome can only be 1 of 2 options e.g. heads or tails. They can tell us, for example, the probability of observing any number of heads occurring if a coin is flipped a given number of times.
 
-### Normal distribution
+### Normal Distributions
 A normal distribution looks like this:
 
-![**Fig. 1 Normal Distribution of height**](images/norm_dist_height.png)
+![**Figure 8.1: Normal Distribution of height. $\mu$ = the mean (average), $\sigma$ = standard deviation**](images/norm_dist_height.png)
+
+As we've already seen, binomial distributions show us the probability of an event occurring when there are two possible outcomes. The normal distribution, on the other hand, reflects the probability of any value occurring for a continuous variable. Examples of continuous variables include height or age where a single person can score anywhere along a continuum. For example, a person could be 21.5 years old and 176cm tall.
+
+Normal distributions are symmetrical, meaning there is an equal probability of observations occurring above and below the mean. This means that, if the mean in figure 1 is 170, we could expect the number of people who have a height of 160 to equal the number of people who have a height of 180.
+
+Another point worth noting is that in a normal distribution, the mean, median, and mode are all equal.
 
 ## Inclass activity
 
@@ -43,11 +49,15 @@ A normal distribution looks like this:
 
 In lab 7 and the pre lab for this lab you recapped and expanded on your understanding of probability, including a number of `binom` functions as well as some more basic ideas on probability and data types. You will need these skills to complete the following so please make sure you have carried out the pre class on types of data before attempting this. Remember to follow the instructions and if you get stuck at any point to ask the staff member and GTAs to talk you through it.
 
-Staff will talk you through the mean and standard deviations in relation to a normal distribution. A normal distribution looks something like this:
+Staff will talk you through the mean and standard deviations in relation to a normal distribution.
 
-![**Fig. 1 Normal Distribution of height**](images/norm_dist_height.png)
+With the binomial distribution in lab 7 we plotted the number of successes, heads or tails, we achieved with a certain number of throws so we use a bar plot e.g. how many heads we got between 1 and 10 tosses of the coin. This time with our height example above, we are plotting the probability of observing people with heights between two points, ~140cm to ~200cm. For this, we can use a density plot (as in figure 1), or a histogram (see below), to reflect the number of people we actually observe with a given height.
 
-With the binomial distribution in lab 7 we plotted the number of successes, heads or tails, we achieved with a certain number of throws so we use a bar plot e.g. how many heads we got between 1 and 10 tosses of the coin. This time with our height example above, we are plotting the number of people of each height along a continuum between two points, ~140cm to ~200cm. For this, we use a histogram which is the plot above.
+```{r, echo=FALSE, fig.cap="The distribution of heights we might actually observe in a sample of 10000 people."}
+tibble::tibble(height = rnorm(10000, 170, 7.2)) %>%
+   ggplot(aes(x = height)) +
+   geom_histogram(binwidth = 5)
+```
 
 ### Working with the Normal Distribution
 
