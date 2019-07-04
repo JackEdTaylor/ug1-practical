@@ -20,7 +20,7 @@ OK, so what is our first step? Yup, thats right, we need to tell RStudio where t
 ### Activity 1: Packages and data  
 Open up tidyverse and read in data
 
-```{r T1 getting started, echo=FALSE}
+```{r T1 getting started, message=FALSE}
 library(tidyverse)
 dat <- read_csv ('files/ahi-cesd.csv')
 pinfo <- read_csv('files/participant-info.csv')
