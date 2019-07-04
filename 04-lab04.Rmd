@@ -22,6 +22,36 @@ In [Lab 3](lab-3.html) we were introduced to the tidyverse package, `dplyr`, and
 
 * We want to order a dataframe of participants by the number of cats that they own, but want our new dataframe to only contain some of our columns. To do this we could use the `r mcq(sample(c(answer = "arrange() and select()", "group_by() and mutate()", answer="mutate() and filter()", "select() and summarise()")))` functions.
 
+### Intro to Plotting
+
+Being able to visualise our variables, and relationships between our variables, is a very useful skill. Before we do any statistical analyses or present any summary statistics, visualising our variables is:
+
+1. A quick and easy way to check our data make sense, and to identify any unusual trends.
+
+2. A way to honestly present the features of our data to anyone who reads our research.
+
+Plotting in R is especially easy and flexible, thanks to the tidyverse package, `ggplot2`. This lab will only cover the basics, but here is an example usage of `ggplot2` to plot some data:
+
+```{r echo=FALSE, message=FALSE}
+sim_dat <- MASS::mvrnorm(100, mu = c(170, 75), Sigma = matrix(c(7.2, 0.975, 5.8, 0.975), nrow=2), empirical=TRUE)
+my_data <- tibble(
+  height = sim_dat[,1],
+  weight = sim_dat[,2]
+)
+```
+
+```{r, fig.cap="Example plot of height by weight data."}
+ggplot(my_data, aes(x = height, y = weight)) +
+  geom_point()
+```
+
+* `ggplot()` creates the ggplot object, which puts our data in a form that `ggplot2` can understand.
+
+  + `my_data` is the dataset. This contains the ages and heights of my participants. Each row is a different participant.
+
+  + The `aes()` function tells the plot which variables are plotted on which axes. On the x axis, we've put participants' heights, and on the y axis, their weights.
+
+* `geom_point()` is a geom object which says what to actually do with all this information. Here, we tell ggplot2 to plot a point for each row (participant) in the dataset.
 
 ## In-class activities
 
@@ -63,7 +93,8 @@ age_65max <- filter(ahi_asc, age < 65)
 ### Activity 5: Group and summarise  
 Group the data stored in the variable ```age_65max``` by sex, and store it in ```data_sex```. 
 Then, use summarise to create a new variable ```data_median```, which calculates the median ahiTotal score in this grouped data and assign it a table head called ```median_score```.
-*(Hint: if you're stuck, see .......).*
+
+*(Hint: if you're stuck, see [this dplyr documentation](https://dplyr.tidyverse.org/reference/group_by.html)).*
 ```{r T5}
 data_sex <- group_by(age_65max, sex)
 data_median <- summarise(data_sex, median_score = median(ahiTotal))
@@ -82,8 +113,8 @@ And as Grolemund and Wickham tells us
 http://r4ds.had.co.nz/introduction.html
 
 ```{r, createplot, fig.cap='Happiness scores for participants aged less than 65 years'}
-ggplot(data = age_65max) + 
-  geom_point(mapping = aes(x = ahiTotal , y = cesdTotal), col="purple") 
+ggplot(data = age_65max, mapping = aes(x = ahiTotal , y = cesdTotal)) + 
+  geom_point(col="purple")
 ```
 
 Great job! You have now worked with the essential basics of good practice in data wrangling! To show us how you have mastered this complete the assessment and submit by 12pm 1 week from your lab. 
