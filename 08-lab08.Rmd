@@ -41,15 +41,25 @@ The **normal distribution**, on the other hand, reflects the probability of any 
 
 As the normal distribution models the probability of a continuous variable, we plot the probability using a density plot. A normal distribution looks like this:
 
-![**Figure 8.1: Normal Distribution of height. $\mu$ = the mean (average), $\sigma$ = standard deviation**](images/norm_dist_height.png)
+```{r, echo=FALSE, fig.cap="Normal Distribution of height. $\mu$ = the mean (average), $\sigma$ = standard deviation", out.width="100%", out.height="100%"}
+knitr::include_graphics(path="./images/norm_dist_height.png")
+```
 
 Normal distributions are symmetrical, meaning there is an equal probability of observations occurring above and below the mean. This means that, if the mean in figure 1 is 170, we could expect the number of people who have a height of 160 to equal the number of people who have a height of 180. This also means that the mean, median, and mode are all expected to be equal in a normal distribution.
 
-As with any probabilities, real-world data will approximate the normal distribution, but will (almost certainly) never match it exactly. As we collect more observations, our data will get closer to a normal distribution. As an example, here's a simulation of an experiment in which we collect heights from 5000 participants. As you can see, as we add more observations, our data starts to look more and more like the normal distribution.
+As with any probabilities, real-world data will come close to the normal distribution, but will (almost certainly) never match it exactly. As we collect more observations from normally-distributed data, our data will get increasingly closer to a normal distribution. As an example, here's a simulation of an experiment in which we collect heights from 5000 participants. As you can see, as we add more observations, our data starts to look more and more like the normal distribution in the previous figure.
 
 ```{r, echo=FALSE, fig.cap="A simulation of an experiment collecting height data from 2000 participants", out.width="75%", out.height="75%"}
 knitr::include_graphics(path="./images/normal_dist.gif")
 ```
+
+#### <span style="color:DARKGREEN"> Quickfire Questions</span>
+
+Complete the sentences so that they are correct.
+
+* In a normal distribution, the mean, median, and mode `r mcq(sample(c(answer = "are all equal", "sum to zero", "are always interval data")))`.
+* An example of data in which you might expect to see a normal distribution is `r mcq(sample(c(answer = "the number of goals scored by Leeds United F.C.", "the number of heads observed out of 10 coin flips", "the number of people who are right handed")))`.
+* Whereas the binomial distribution is based on situations in which there are two possible outcomes, the normal distribution is based on situations in which the data `r mcq(sample(c(answer = "is a continuous variable", "has three possible values", "is a categorical variable")))`.
 
 ### Working with the Normal Distribution
 
