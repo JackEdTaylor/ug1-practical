@@ -32,7 +32,7 @@ Being able to visualise our variables, and relationships between our variables, 
 
 Plotting in R is especially easy and flexible, thanks to the tidyverse package, `ggplot2`. This lab will only cover the basics, but here is an example usage of `ggplot2` to plot some data:
 
-```{r echo=FALSE, message=FALSE}
+```{r sim_dat, echo=FALSE, message=FALSE}
 sim_dat <- MASS::mvrnorm(100, mu = c(170, 75), Sigma = matrix(c(7.2, 0.975, 5.8, 0.975), nrow=2), empirical=TRUE)
 my_data <- tibble(
   height = sim_dat[,1],
@@ -40,7 +40,7 @@ my_data <- tibble(
 )
 ```
 
-```{r, fig.cap="Example plot of height by weight data."}
+```{r sim_dat_plot, fig.cap="Example plot of height by weight data."}
 ggplot(my_data, aes(x = height, y = weight)) +
   geom_point()
 ```
