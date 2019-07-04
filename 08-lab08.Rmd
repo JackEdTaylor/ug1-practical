@@ -41,7 +41,7 @@ The **normal distribution**, on the other hand, reflects the probability of any 
 
 As the normal distribution models the probability of a continuous variable, we plot the probability using a density plot. A normal distribution looks like this:
 
-```{r, echo=FALSE, fig.cap="Normal Distribution of height. $\mu$ = the mean (average), $\sigma$ = standard deviation", out.width="100%", out.height="100%"}
+```{r, echo=FALSE, fig.cap="Normal Distribution of height. $\\mu$ = the mean (average), $\\sigma$ = standard deviation", out.width="100%", out.height="100%"}
 knitr::include_graphics(path="./images/norm_dist_height.png")
 ```
 
