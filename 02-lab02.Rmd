@@ -94,33 +94,49 @@ OK, so what is our first step? Yup, thats right, we need to tell RStudio what pa
 
 First, we have to load in the package, `tidyverse` which contains the functions we're going to use (`read_csv()` and `inner_join()` are examples of `tidyverse` funcitons). We'll go into more detail about what `tidyverse` is in [Lab 3](lab-3.html).
 
+`r webex::hide()`
+
 ```{r T1, warning = FALSE, message = FALSE}
 library(tidyverse)
 ```
 
+`r webex::unhide()`
+
 ### **Activity 2: Read in data**
 
 Next, we want to load in the data we'll be working with. We're using the function `read_csv()`, and giving the file path to our .csv files. The `<-` tells us that the output from this code is sent to the variables `dat` for our data, and `pinfo`, for our participant info.
+
+`r webex::hide()`
 
 ```{r T2, warning = FALSE, message = FALSE}
 dat <- read_csv ('files/ahi-cesd.csv')
 pinfo <- read_csv('files/participant-info.csv')
 ```
 
+`r webex::unhide()`
+
 ### **Activity 3: Join the files together**
 
 In the last step, we created two dataframes, `dat` and `pinfo`. Now, we want to join these together into dataframe. We can do this with the `inner_join()` function. This will add the data from columns from `pinfo` to the data in `dat`, so that each row will contain a single participant's data for one observation, as well as information like that participant's sex. We're saving the output of this to the variable, `all_dat`.
+
+`r webex::hide()`
 
 ```{r T3}
 all_dat <- inner_join(dat, pinfo, by='id', 'intervention')
 ```
 
+`r webex::unhide()`
+
 ### **Activity 4: Pull out variables of interest**
 
 The `select()` function allows us to grab specific variables (columns) from a dataframe. `summarydata` will be the same as `all_dat`, but containing only the variables we asked for.
 
+`r webex::hide()`
+
 ```{r T4}
 summarydata <- select(all_dat, ahiTotal, cesdTotal, sex, age, educ, income, occasion, elapsed.days)
 ```
+
+`r webex::unhide()`
 
 Well done! You have started on your journey to become a confident and competent member of the open scientific community! To show us how competent you are you should now complete the assessment for this lab which follows the same instructions as this in-class activity but asks you to work with different variables. Always us the lab prep materials as well as what you do in class to help you complete the class assessments! Success through practice!

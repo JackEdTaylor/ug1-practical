@@ -112,26 +112,38 @@ In this lab we will use this information to calculate the probability of observi
 
 1. What is the probability of meeting a 16-24 y.o. Scotswoman who is
    taller than the average 16-24 y.o. Scotsman?
-   
+
+`r webex::hide()`
+
 ```{r P2_1}
 p_taller_w <- pnorm(176.2, 163.8, 6.931, lower.tail = FALSE)
 ```
-   
+
+`r webex::unhide()`
+
 2. Fiona is a very tall Scotswoman (181.12\nbsp{}cm) in the 16-24
    y.o. range who refuses to date men who are shorter than her.  What
    proportion of all 16-24 Scotsmen would she be willing to date?
-   
+
+`r webex::hide()`
+
 ```{r P2_2}
 p_taller_m <- pnorm(181.12, 176.2, 6.748, lower.tail = FALSE)
 ```
 
+`r webex::unhide()`
+
 3. Out of 100,000 16-24 y.o. Scotswomen, how many would you predict
    would meet the height eligibility requirement to join the Royal
    Navy (at least 151.5\nbsp{}cm tall)?
-   
+
+`r webex::hide()`
+
 ```{r P2_3}
 n_sailors <- 100000 * pnorm(151.5, 163.8, 6.931, lower.tail = FALSE)
 ```
+
+`r webex::unhide()`
 
 ### `qnorm()` - the quartile function
 
@@ -141,6 +153,10 @@ Let's use our height example to work with qnorm:
    the top 5% of the height distribution for Scotsmen in his age
    group?
 
+`r webex::hide()`
+
 ```{r P2_4}
 height_cutoff <- qnorm(.05, 176.2, 6.748, lower.tail = FALSE)
 ```
+
+`r webex::unhide()`
