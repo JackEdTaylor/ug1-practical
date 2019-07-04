@@ -2,7 +2,7 @@
 --- 
 title: "Level 1 Data Skills"
 author: "psyTeachR"
-date: "2019-07-01"
+date: "2019-07-04"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]

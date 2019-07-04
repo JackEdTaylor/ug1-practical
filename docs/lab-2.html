@@ -24,7 +24,7 @@
 <meta name="author" content="psyTeachR" />
 
 
-<meta name="date" content="2019-07-01" />
+<meta name="date" content="2019-07-04" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -166,7 +166,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="lab-4.html"><a href="lab-4.html"><i class="fa fa-check"></i><b>4</b> Lab 4</a><ul>
-<li class="chapter" data-level="4.1" data-path="lab-4.html"><a href="lab-4.html#pre-class-activity-2"><i class="fa fa-check"></i><b>4.1</b> Pre-class activity</a></li>
+<li class="chapter" data-level="4.1" data-path="lab-4.html"><a href="lab-4.html#pre-class-activity-2"><i class="fa fa-check"></i><b>4.1</b> Pre-class activity</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="lab-4.html"><a href="lab-4.html#dplyr-recap"><i class="fa fa-check"></i><b>4.1.1</b> <span style="color:DARKGREEN"> dplyr Recap</span></a></li>
+<li class="chapter" data-level="4.1.2" data-path="lab-4.html"><a href="lab-4.html#intro-to-plotting"><i class="fa fa-check"></i><b>4.1.2</b> Intro to Plotting</a></li>
+</ul></li>
 <li class="chapter" data-level="4.2" data-path="lab-4.html"><a href="lab-4.html#in-class-activities-3"><i class="fa fa-check"></i><b>4.2</b> In-class activities</a><ul>
 <li class="chapter" data-level="4.2.1" data-path="lab-4.html"><a href="lab-4.html#getting-our-data-ready-to-work-with-1"><i class="fa fa-check"></i><b>4.2.1</b> Getting our data ready to work with</a></li>
 <li class="chapter" data-level="4.2.2" data-path="lab-4.html"><a href="lab-4.html#activity-1-packages-and-data-1"><i class="fa fa-check"></i><b>4.2.2</b> Activity 1: Packages and data</a></li>
@@ -282,15 +285,31 @@ This is the first lab that the students will be introduced to R. The important p
 <li>This is essential as a psychologist as you need to know that the data that findings are based on are reliable and valid. Imagine delivering a treatment that was based on research where the analyst was not confident or competent?</li>
 </ul>
 <p>See this tweet from Dr Dale Barr on how applicable these skills will be for you in your future careers…</p>
-<p><img src="images/Dale_tweet.png" width="500px" /></p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-3"></span>
+<img src="images/Dale_tweet.png" alt="A tweet from Dale Barr" width="500px" />
+<p class="caption">
+Figure 2.1: A tweet from Dale Barr
+</p>
+</div>
 <p>These are skills that you will use beyond our undergraduate course and that are desireable to employers. Just ask our previous students….</p>
-<p><img src="images/Steph_tweet.PNG" width="500px" /></p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-4"></span>
+<img src="images/Steph_tweet.png" alt="A tweet from Steph Allan" width="500px" />
+<p class="caption">
+Figure 2.2: A tweet from Steph Allan
+</p>
+</div>
 <p>Think of a skill you nailed the first time you did it. Not so easy? You will learn to work with data by repeating the essential basic skills over and over. It’s new and will take time. Give yourself credit for trying and don’t stress if it doesn’t work right away. Use the resources we give, that are being provided online among the open science community, and ask questions in class and on the forums. We are here to help!</p>
 </div>
 <div id="activity-2-setting-the-working-directory." class="section level3">
 <h3><span class="header-section-number">2.1.2</span> Activity 2: Setting the working directory.</h3>
-<p>What this means is that we tell R where the files we need are located. Think of it just like when you have different subjects, and you have seperate folders for each topic e.g. biology, history and so on. When working on R, it’s useful to have all the data sets and files you need in one folder.
-To set the working directory press session -&gt; set working directory -&gt; choose directory and then select the folder where the data sets we are working on are saved, and save this file in the same folder as well. In other words- make sure your data sets and scripts are all in the same folder. Follow the pre-lab video to help you with this too. In the labs, we recommend that you create a folder for Psychology labs with sub-folders within for each lab in your M: drive. This is your personal area on the University network that is safe and secure so is much better than flashdrives or desktops.</p>
+<p>What this means is that we tell R where the files we need are located. Think of it just like when you have different subjects, and you have seperate folders for each topic e.g. biology, history and so on. When working on R, it’s useful to have all the data sets and files you need in one folder.</p>
+<p>To set the working directory press session -&gt; set working directory -&gt; choose directory and then select the folder where the data sets we are working on are saved, and save this file in the same folder as well. In other words- make sure your data sets and scripts are all in the same folder. Follow the pre-lab video to help you with this too. In the labs, we recommend that you create a folder for Psychology labs with sub-folders within for each lab in your M: drive. This is your personal area on the University network that is safe and secure so is much better than flashdrives or desktops.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-5"></span>
+<img src="images/setwd.gif" alt="Setting your working directory" width="75%" height="75%" />
+<p class="caption">
+Figure 2.3: Setting your working directory
+</p>
+</div>
 </div>
 <div id="important-information-on-our-homework-worksheets" class="section level3">
 <h3><span class="header-section-number">2.1.3</span> Important information on our homework worksheets</h3>
@@ -336,20 +355,44 @@ To set the working directory press session -&gt; set working directory -&gt; cho
 </div>
 <div id="activity-1-loading-in-the-package" class="section level3">
 <h3><span class="header-section-number">2.2.2</span> <strong>Activity 1: Loading in the package</strong></h3>
+<p>First, we have to load in the package, <code>tidyverse</code> which contains the functions we’re going to use (<code>read_csv()</code> and <code>inner_join()</code> are examples of <code>tidyverse</code> funcitons). We’ll go into more detail about what <code>tidyverse</code> is in <a href="lab-3.html">Lab 3</a>.</p>
+<div class="solution">
+<button>
+Solution
+</button>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)</code></pre>
+</div>
 </div>
 <div id="activity-2-read-in-data" class="section level3">
 <h3><span class="header-section-number">2.2.3</span> <strong>Activity 2: Read in data</strong></h3>
+<p>Next, we want to load in the data we’ll be working with. We’re using the function <code>read_csv()</code>, and giving the file path to our .csv files. The <code>&lt;-</code> tells us that the output from this code is sent to the variables <code>dat</code> for our data, and <code>pinfo</code>, for our participant info.</p>
+<div class="solution">
+<button>
+Solution
+</button>
 <pre class="sourceCode r"><code class="sourceCode r">dat &lt;-<span class="st"> </span><span class="kw">read_csv</span> (<span class="st">&#39;files/ahi-cesd.csv&#39;</span>)
 pinfo &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&#39;files/participant-info.csv&#39;</span>)</code></pre>
 </div>
+</div>
 <div id="activity-3-join-the-files-together" class="section level3">
 <h3><span class="header-section-number">2.2.4</span> <strong>Activity 3: Join the files together</strong></h3>
+<p>In the last step, we created two dataframes, <code>dat</code> and <code>pinfo</code>. Now, we want to join these together into dataframe. We can do this with the <code>inner_join()</code> function. This will add the data from columns from <code>pinfo</code> to the data in <code>dat</code>, so that each row will contain a single participant’s data for one observation, as well as information like that participant’s sex. We’re saving the output of this to the variable, <code>all_dat</code>.</p>
+<div class="solution">
+<button>
+Solution
+</button>
 <pre class="sourceCode r"><code class="sourceCode r">all_dat &lt;-<span class="st"> </span><span class="kw">inner_join</span>(dat, pinfo, <span class="dt">by=</span><span class="st">&#39;id&#39;</span>, <span class="st">&#39;intervention&#39;</span>)</code></pre>
+</div>
 </div>
 <div id="activity-4-pull-out-variables-of-interest" class="section level3">
 <h3><span class="header-section-number">2.2.5</span> <strong>Activity 4: Pull out variables of interest</strong></h3>
+<p>The <code>select()</code> function allows us to grab specific variables (columns) from a dataframe. <code>summarydata</code> will be the same as <code>all_dat</code>, but containing only the variables we asked for.</p>
+<div class="solution">
+<button>
+Solution
+</button>
 <pre class="sourceCode r"><code class="sourceCode r">summarydata &lt;-<span class="st"> </span><span class="kw">select</span>(all_dat, ahiTotal, cesdTotal, sex, age, educ, income, occasion, elapsed.days)</code></pre>
+</div>
 <p>Well done! You have started on your journey to become a confident and competent member of the open scientific community! To show us how competent you are you should now complete the assessment for this lab which follows the same instructions as this in-class activity but asks you to work with different variables. Always us the lab prep materials as well as what you do in class to help you complete the class assessments! Success through practice!</p>
 
 </div>

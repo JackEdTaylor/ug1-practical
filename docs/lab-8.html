@@ -24,7 +24,7 @@
 <meta name="author" content="psyTeachR" />
 
 
-<meta name="date" content="2019-07-01" />
+<meta name="date" content="2019-07-04" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -166,7 +166,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="lab-4.html"><a href="lab-4.html"><i class="fa fa-check"></i><b>4</b> Lab 4</a><ul>
-<li class="chapter" data-level="4.1" data-path="lab-4.html"><a href="lab-4.html#pre-class-activity-2"><i class="fa fa-check"></i><b>4.1</b> Pre-class activity</a></li>
+<li class="chapter" data-level="4.1" data-path="lab-4.html"><a href="lab-4.html#pre-class-activity-2"><i class="fa fa-check"></i><b>4.1</b> Pre-class activity</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="lab-4.html"><a href="lab-4.html#dplyr-recap"><i class="fa fa-check"></i><b>4.1.1</b> <span style="color:DARKGREEN"> dplyr Recap</span></a></li>
+<li class="chapter" data-level="4.1.2" data-path="lab-4.html"><a href="lab-4.html#intro-to-plotting"><i class="fa fa-check"></i><b>4.1.2</b> Intro to Plotting</a></li>
+</ul></li>
 <li class="chapter" data-level="4.2" data-path="lab-4.html"><a href="lab-4.html#in-class-activities-3"><i class="fa fa-check"></i><b>4.2</b> In-class activities</a><ul>
 <li class="chapter" data-level="4.2.1" data-path="lab-4.html"><a href="lab-4.html#getting-our-data-ready-to-work-with-1"><i class="fa fa-check"></i><b>4.2.1</b> Getting our data ready to work with</a></li>
 <li class="chapter" data-level="4.2.2" data-path="lab-4.html"><a href="lab-4.html#activity-1-packages-and-data-1"><i class="fa fa-check"></i><b>4.2.2</b> Activity 1: Packages and data</a></li>
@@ -290,10 +293,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h4><span class="header-section-number">8.1.1.1</span> <span style="color:DARKGREEN"> Quickfire Questions</span></h4>
 <p>What kinds of data are the following examples of?</p>
 <ul>
-<li>Time taken to run a marathon (in seconds): <select class='solveme' data-answer='["ratio"]'> <option></option> <option>interval</option> <option>categorical</option> <option>ordinal</option> <option>ratio</option></select></li>
-<li>Finishing position in marathon (e.g. 1st, 2nd, 3rd): <select class='solveme' data-answer='["ordinal"]'> <option></option> <option>categorical</option> <option>interval</option> <option>ordinal</option> <option>ratio</option></select></li>
-<li>Which Sesame Street character a runner was dressed as: <select class='solveme' data-answer='["categorical"]'> <option></option> <option>ordinal</option> <option>interval</option> <option>categorical</option> <option>ratio</option></select></li>
-<li>Temperature of a runner dressed in a cookie monster outfit (in degrees Celsius): <select class='solveme' data-answer='["interval"]'> <option></option> <option>interval</option> <option>categorical</option> <option>ordinal</option> <option>ratio</option></select></li>
+<li>Time taken to run a marathon (in seconds): <select class='solveme' data-answer='["ratio"]'> <option></option> <option>ordinal</option> <option>ratio</option> <option>categorical</option> <option>interval</option></select></li>
+<li>Finishing position in marathon (e.g. 1st, 2nd, 3rd): <select class='solveme' data-answer='["ordinal"]'> <option></option> <option>interval</option> <option>ratio</option> <option>ordinal</option> <option>categorical</option></select></li>
+<li>Which Sesame Street character a runner was dressed as: <select class='solveme' data-answer='["categorical"]'> <option></option> <option>ratio</option> <option>categorical</option> <option>interval</option> <option>ordinal</option></select></li>
+<li>Temperature of a runner dressed in a cookie monster outfit (in degrees Celsius): <select class='solveme' data-answer='["interval"]'> <option></option> <option>ratio</option> <option>ordinal</option> <option>categorical</option> <option>interval</option></select></li>
 </ul>
 </div>
 </div>
@@ -306,17 +309,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">8.1.3</span> Introduction to the Normal Distribution</h3>
 <p>The <strong>normal distribution</strong>, on the other hand, reflects the probability of any value occurring for a <em>continuous</em> variable. Examples of continuous variables include height or age, where a single person can score anywhere along a continuum. For example, a person could be 21.5 years old and 176cm tall.</p>
 <p>As the normal distribution models the probability of a continuous variable, we plot the probability using a density plot. A normal distribution looks like this:</p>
-<div class="figure">
-<img src="images/norm_dist_height.png" alt="Figure 8.1: Normal Distribution of height. \mu = the mean (average), \sigma = standard deviation" />
-<p class="caption"><strong>Figure 8.1: Normal Distribution of height. <span class="math inline">\(\mu\)</span> = the mean (average), <span class="math inline">\(\sigma\)</span> = standard deviation</strong></p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-2"></span>
+<img src="images/norm_dist_height.png" alt="Normal Distribution of height. $\mu$ = the mean (average), $\sigma$ = standard deviation" width="100%" height="100%" />
+<p class="caption">
+Figure 8.1: Normal Distribution of height. <span class="math inline">\(\mu\)</span> = the mean (average), <span class="math inline">\(\sigma\)</span> = standard deviation
+</p>
 </div>
 <p>Normal distributions are symmetrical, meaning there is an equal probability of observations occurring above and below the mean. This means that, if the mean in figure 1 is 170, we could expect the number of people who have a height of 160 to equal the number of people who have a height of 180. This also means that the mean, median, and mode are all expected to be equal in a normal distribution.</p>
-<p>As with any probabilities, real-world data will approximate the normal distribution, but will (almost certainly) never match it exactly. As we collect more observations, our data will get closer to a normal distribution. As an example, here’s a simulation of an experiment in which we collect heights from 5000 participants. As you can see, as we add more observations, our data starts to look more and more like the normal distribution.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-2"></span>
+<p>As with any probabilities, real-world data will come close to the normal distribution, but will (almost certainly) never match it exactly. As we collect more observations from normally-distributed data, our data will get increasingly closer to a normal distribution. As an example, here’s a simulation of an experiment in which we collect heights from 5000 participants. As you can see, as we add more observations, our data starts to look more and more like the normal distribution in the previous figure.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-3"></span>
 <img src="images/normal_dist.gif" alt="A simulation of an experiment collecting height data from 2000 participants" width="75%" height="75%" />
 <p class="caption">
-Figure 8.1: A simulation of an experiment collecting height data from 2000 participants
+Figure 2.1: A simulation of an experiment collecting height data from 2000 participants
 </p>
+</div>
+<div id="quickfire-questions-1" class="section level4">
+<h4><span class="header-section-number">8.1.3.1</span> <span style="color:DARKGREEN"> Quickfire Questions</span></h4>
+<p>Complete the sentences so that they are correct.</p>
+<ul>
+<li>In a normal distribution, the mean, median, and mode <select class='solveme' data-answer='["are all equal"]'> <option></option> <option>are all equal</option> <option>sum to zero</option> <option>are always interval data</option></select>.</li>
+<li>An example of data in which you might expect to see a normal distribution is <select class='solveme' data-answer='["the number of goals scored by Leeds United F.C."]'> <option></option> <option>the number of heads observed out of 10 coin flips</option> <option>the number of people who are right handed</option> <option>the number of goals scored by Leeds United F.C.</option></select>.</li>
+<li>Whereas the binomial distribution is based on situations in which there are two possible outcomes, the normal distribution is based on situations in which the data <select class='solveme' data-answer='["is a continuous variable"]'> <option></option> <option>is a categorical variable</option> <option>has three possible values</option> <option>is a continuous variable</option></select>.</li>
+</ul>
 </div>
 </div>
 <div id="working-with-the-normal-distribution" class="section level3">
@@ -359,19 +373,34 @@ Figure 8.1: A simulation of an experiment collecting height data from 2000 parti
 <li>What is the probability of meeting a 16-24 y.o. Scotswoman who is
 taller than the average 16-24 y.o. Scotsman?</li>
 </ol>
+<div class="solution">
+<button>
+Solution
+</button>
 <pre class="sourceCode r"><code class="sourceCode r">p_taller_w &lt;-<span class="st"> </span><span class="kw">pnorm</span>(<span class="fl">176.2</span>, <span class="fl">163.8</span>, <span class="fl">6.931</span>, <span class="dt">lower.tail =</span> <span class="ot">FALSE</span>)</code></pre>
+</div>
 <ol start="2" style="list-style-type: decimal">
 <li>Fiona is a very tall Scotswoman (181.12cm) in the 16-24
 y.o. range who refuses to date men who are shorter than her. What
 proportion of all 16-24 Scotsmen would she be willing to date?</li>
 </ol>
+<div class="solution">
+<button>
+Solution
+</button>
 <pre class="sourceCode r"><code class="sourceCode r">p_taller_m &lt;-<span class="st"> </span><span class="kw">pnorm</span>(<span class="fl">181.12</span>, <span class="fl">176.2</span>, <span class="fl">6.748</span>, <span class="dt">lower.tail =</span> <span class="ot">FALSE</span>)</code></pre>
+</div>
 <ol start="3" style="list-style-type: decimal">
 <li>Out of 100,000 16-24 y.o. Scotswomen, how many would you predict
 would meet the height eligibility requirement to join the Royal
 Navy (at least 151.5cm tall)?</li>
 </ol>
+<div class="solution">
+<button>
+Solution
+</button>
 <pre class="sourceCode r"><code class="sourceCode r">n_sailors &lt;-<span class="st"> </span><span class="dv">100000</span> <span class="op">*</span><span class="st"> </span><span class="kw">pnorm</span>(<span class="fl">151.5</span>, <span class="fl">163.8</span>, <span class="fl">6.931</span>, <span class="dt">lower.tail =</span> <span class="ot">FALSE</span>)</code></pre>
+</div>
 </div>
 <div id="qnorm---the-quartile-function" class="section level3">
 <h3><span class="header-section-number">8.2.4</span> <code>qnorm()</code> - the quartile function</h3>
@@ -381,7 +410,12 @@ Navy (at least 151.5cm tall)?</li>
 the top 5% of the height distribution for Scotsmen in his age
 group?</li>
 </ol>
+<div class="solution">
+<button>
+Solution
+</button>
 <pre class="sourceCode r"><code class="sourceCode r">height_cutoff &lt;-<span class="st"> </span><span class="kw">qnorm</span>(.<span class="dv">05</span>, <span class="fl">176.2</span>, <span class="fl">6.748</span>, <span class="dt">lower.tail =</span> <span class="ot">FALSE</span>)</code></pre>
+</div>
 
 </div>
 </div>

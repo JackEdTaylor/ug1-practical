@@ -24,7 +24,7 @@
 <meta name="author" content="psyTeachR" />
 
 
-<meta name="date" content="2019-07-01" />
+<meta name="date" content="2019-07-04" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -166,7 +166,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="lab-4.html"><a href="lab-4.html"><i class="fa fa-check"></i><b>4</b> Lab 4</a><ul>
-<li class="chapter" data-level="4.1" data-path="lab-4.html"><a href="lab-4.html#pre-class-activity-2"><i class="fa fa-check"></i><b>4.1</b> Pre-class activity</a></li>
+<li class="chapter" data-level="4.1" data-path="lab-4.html"><a href="lab-4.html#pre-class-activity-2"><i class="fa fa-check"></i><b>4.1</b> Pre-class activity</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="lab-4.html"><a href="lab-4.html#dplyr-recap"><i class="fa fa-check"></i><b>4.1.1</b> <span style="color:DARKGREEN"> dplyr Recap</span></a></li>
+<li class="chapter" data-level="4.1.2" data-path="lab-4.html"><a href="lab-4.html#intro-to-plotting"><i class="fa fa-check"></i><b>4.1.2</b> Intro to Plotting</a></li>
+</ul></li>
 <li class="chapter" data-level="4.2" data-path="lab-4.html"><a href="lab-4.html#in-class-activities-3"><i class="fa fa-check"></i><b>4.2</b> In-class activities</a><ul>
 <li class="chapter" data-level="4.2.1" data-path="lab-4.html"><a href="lab-4.html#getting-our-data-ready-to-work-with-1"><i class="fa fa-check"></i><b>4.2.1</b> Getting our data ready to work with</a></li>
 <li class="chapter" data-level="4.2.2" data-path="lab-4.html"><a href="lab-4.html#activity-1-packages-and-data-1"><i class="fa fa-check"></i><b>4.2.2</b> Activity 1: Packages and data</a></li>
@@ -318,13 +321,13 @@ For example, what is the probability of randomly drawing your name out of a hat 
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Notice that because our event labels are strings (text), </span>
 <span class="co"># we need to enter them into the function as a vector; i.e. in &quot;quotes&quot; </span>
 <span class="kw">sample</span>(<span class="dt">x =</span> <span class="kw">c</span>(<span class="st">&quot;HEADS&quot;</span>, <span class="st">&quot;TAILS&quot;</span>), <span class="dt">size =</span> <span class="dv">4</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>) </code></pre>
-<pre><code>## [1] &quot;HEADS&quot; &quot;TAILS&quot; &quot;HEADS&quot; &quot;HEADS&quot;</code></pre>
+<pre><code>## [1] &quot;TAILS&quot; &quot;TAILS&quot; &quot;HEADS&quot; &quot;HEADS&quot;</code></pre>
 <p>What you have done here is tell R that you want to sample observations from a set of data, which in this case was our vector <code>c("HEADS", "TAILS")</code>. <code>size</code> tells R the number of samples you want to take. We chose four, which is larger than the size of the vector itself (it has only two components; HEADS and TAILS). For this reason we need to override the default setting, which is sampling without replacement. Sampling without replacement means that once an observation appears in the sample, it is removed from the source vector so that it can’t be drawn again. Sampling with replacement means that an observation is retained so it can be drawn again. In this case, if we don’t override the default it would mean that if we tossed HEADS we wouldn’t be able to toss the coin and get HEADS again and we would get an error message because we’ve asked for more observations than are possible (we override this by setting replace to TRUE)</p>
 <p>It will make our lives easier if we define heads as one and tails as zero and write the same command as follows:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Now that our event labels are numeric, we don&#39;t need the combine function `c`</span>
 <span class="co"># 0:1 means all numbers from 0 to 1 in steps of 1. So basically, 0 and 1.</span>
 <span class="kw">sample</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">1</span>, <span class="dv">4</span>, <span class="ot">TRUE</span>)</code></pre>
-<pre><code>## [1] 1 0 1 0</code></pre>
+<pre><code>## [1] 0 1 1 0</code></pre>
 </div>
 <div id="activity-4-sum" class="section level3">
 <h3><span class="header-section-number">7.1.8</span> Activity 4: sum</h3>
@@ -333,7 +336,7 @@ For example, what is the probability of randomly drawing your name out of a hat 
 <span class="co">#then the function sum() which counts up the number of heads.</span>
 
 <span class="kw">sample</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">1</span>, <span class="dv">4</span>, <span class="ot">TRUE</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">sum</span>()</code></pre>
-<pre><code>## [1] 2</code></pre>
+<pre><code>## [1] 3</code></pre>
 <p>Run this function multiple times (you can use the up arrow in the console to avoid having to type it over and over). I ran it five times the results of my little (N = 5) simulation of flipping four coins and counting heads were: 1, 3, 2, 2, and 3. So in only one out of the five simulations did I get exactly one heads.</p>
 </div>
 <div id="activity-5-replicate-1" class="section level3">
@@ -341,7 +344,7 @@ For example, what is the probability of randomly drawing your name out of a hat 
 <p>Let’s repeat the experiment a whole bunch more times. We can have R do this over and over again using the replicate() function from base R. The basic syntax of replicate() is replicate(number_of_times, expression_you_want_to_replicate). So</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># repeats the expression sample(0:1, 4, TRUE) %&gt;% sum() 20 times; the result comes out as a vector with each number represents a count of the number of heads over four flips in each of the 20 ’experiments’.</span>
 <span class="kw">replicate</span>(<span class="dt">n =</span> <span class="dv">20</span>, <span class="dt">expr =</span> <span class="kw">sample</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">1</span>, <span class="dv">4</span>, <span class="ot">TRUE</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">sum</span>())</code></pre>
-<pre><code>##  [1] 1 2 2 3 3 4 2 2 3 3 2 0 2 2 3 1 2 4 2 3</code></pre>
+<pre><code>##  [1] 4 3 1 3 2 2 4 4 2 1 3 2 1 1 3 3 2 1 0 2</code></pre>
 </div>
 <div id="monte-carlo-simulation" class="section level3">
 <h3><span class="header-section-number">7.1.10</span> Monte Carlo simulation</h3>
@@ -355,8 +358,8 @@ For example, what is the probability of randomly drawing your name out of a hat 
 heads50
 <span class="co"># this time we save the output in the variable heads50</span>
 <span class="co"># so we can work with the results further</span></code></pre>
-<pre><code>##  [1] 2 2 0 4 2 3 2 3 3 2 0 2 2 1 1 1 2 4 3 0 3 1 3 3 4 2 2 1 1 3 2 2 4 2 2
-## [36] 1 2 2 3 1 1 3 3 0 2 0 3 1 1 1</code></pre>
+<pre><code>##  [1] 3 3 2 1 2 3 1 2 1 2 3 2 3 0 3 3 1 2 1 1 1 1 1 2 1 3 3 3 0 2 1 1 1 2 2
+## [36] 2 3 4 2 2 3 2 1 4 1 2 1 2 2 2</code></pre>
 <p>Each of these numbers represents the number of heads from 4 coin tosses, repeated 50 times. The first 2 data points tell us that they each produced heads twice. Your results may differ, since sample() is random. In this case, four of the experiments yielded the outcome of 4/4 heads.</p>
 </div>
 <div id="activity-7-probability" class="section level3">
@@ -369,11 +372,11 @@ heads50
 <pre><code>## # A tibble: 5 x 3
 ##   heads     n     p
 ##   &lt;int&gt; &lt;int&gt; &lt;dbl&gt;
-## 1     0     5  0.1 
-## 2     1    12  0.24
-## 3     2    17  0.34
+## 1     0     2  0.04
+## 2     1    16  0.32
+## 3     2    18  0.36
 ## 4     3    12  0.24
-## 5     4     4  0.08</code></pre>
+## 5     4     2  0.04</code></pre>
 <p>What we have done here is created a variable <strong>heads50</strong> in a new tibble object that contains the results from our 50 experiments, grouped it by the values in <strong>heads50</strong> (0, 1, 2, 3, or 4), and counted the number of times each value was observed in summarise(n = n()), and then calculated the probability by dividing the newly created variable n by the number of experiments (50).</p>
 </div>
 <div id="activity-8-visualisation" class="section level3">
@@ -418,7 +421,7 @@ Figure 7.2: 10K coin toss probability outcomes.
 <pre><code>## # A tibble: 1 x 1
 ##      p2
 ##   &lt;dbl&gt;
-## 1 0.693</code></pre>
+## 1 0.685</code></pre>
 <p>You can add probabilities for various outcomes together as long as the outcomes are mutually exclusive, that is, when one outcome occurs, the others can’t occur. For this coin flipping example, this is obviously the case: you can’t simultaneously get exactly two and exactly three heads as the outcome of a single experiment. However, be aware that you can’t simply add probabilities together when the events in question are not mutually exclusive: for example, the probability of the coin landing heads up, and it landing with the image of the head being in a particular orientation are not mutually exclusive, and can’t be simply added together.</p>
 <p>Additionally, the probabilities we get from Monte Carlo simulations are just estimates; we need something more definitive.</p>
 </div>

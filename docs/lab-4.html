@@ -24,7 +24,7 @@
 <meta name="author" content="psyTeachR" />
 
 
-<meta name="date" content="2019-07-01" />
+<meta name="date" content="2019-07-04" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -166,7 +166,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="lab-4.html"><a href="lab-4.html"><i class="fa fa-check"></i><b>4</b> Lab 4</a><ul>
-<li class="chapter" data-level="4.1" data-path="lab-4.html"><a href="lab-4.html#pre-class-activity-2"><i class="fa fa-check"></i><b>4.1</b> Pre-class activity</a></li>
+<li class="chapter" data-level="4.1" data-path="lab-4.html"><a href="lab-4.html#pre-class-activity-2"><i class="fa fa-check"></i><b>4.1</b> Pre-class activity</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="lab-4.html"><a href="lab-4.html#dplyr-recap"><i class="fa fa-check"></i><b>4.1.1</b> <span style="color:DARKGREEN"> dplyr Recap</span></a></li>
+<li class="chapter" data-level="4.1.2" data-path="lab-4.html"><a href="lab-4.html#intro-to-plotting"><i class="fa fa-check"></i><b>4.1.2</b> Intro to Plotting</a></li>
+</ul></li>
 <li class="chapter" data-level="4.2" data-path="lab-4.html"><a href="lab-4.html#in-class-activities-3"><i class="fa fa-check"></i><b>4.2</b> In-class activities</a><ul>
 <li class="chapter" data-level="4.2.1" data-path="lab-4.html"><a href="lab-4.html#getting-our-data-ready-to-work-with-1"><i class="fa fa-check"></i><b>4.2.1</b> Getting our data ready to work with</a></li>
 <li class="chapter" data-level="4.2.2" data-path="lab-4.html"><a href="lab-4.html#activity-1-packages-and-data-1"><i class="fa fa-check"></i><b>4.2.2</b> Activity 1: Packages and data</a></li>
@@ -275,6 +278,42 @@ This is the last lab of semester 1 where the students willl work with data. Lab 
 <h2><span class="header-section-number">4.1</span> Pre-class activity</h2>
 <p>Interesting twitter conversation between Prof Lisa Debruine and Dr Guillaume Rousselet on the importance of visualising data which you will be learning about in this lab
 <img src="images/ggplot_thread.png" /></p>
+<div id="dplyr-recap" class="section level3">
+<h3><span class="header-section-number">4.1.1</span> <span style="color:DARKGREEN"> dplyr Recap</span></h3>
+<p>In <a href="lab-3.html">Lab 3</a> we were introduced to the tidyverse package, <code>dplyr</code>, and its six important functions. As a recap, which function(s) would you use to approach each of the following problems?</p>
+<ul>
+<li><p>We have a dataset of 400 adults, but we want to remove anyone with an age of 50 years or more. To do this, we could use the <select class='solveme' data-answer='["filter()"]'> <option></option> <option>filter()</option> <option>arrange()</option> <option>select()</option> <option>group_by()</option> <option>mutate()</option> <option>summarise()</option></select> function.</p></li>
+<li><p>We are interested in overall summary statistics for our data, such as the overall average and total number of observations. To do this, we could use the <select class='solveme' data-answer='["summarise()"]'> <option></option> <option>summarise()</option> <option>group_by()</option> <option>select()</option> <option>filter()</option> <option>arrange()</option> <option>mutate()</option></select> function.</p></li>
+<li><p>Our dataset has a column with the number of cats a person has, and a column with the number of dogs. We want to calculate a new column which contains the total number of pets each participant has. To do this, we could use the <select class='solveme' data-answer='["mutate()"]'> <option></option> <option>summarise()</option> <option>filter()</option> <option>mutate()</option> <option>group_by()</option> <option>select()</option> <option>arrange()</option></select> function.</p></li>
+<li><p>We want to calculate the average for each participant in our dataset. To do this we could use the <select class='solveme' data-answer='["group_by() and summarise()"]'> <option></option> <option>group_by() and summarise()</option> <option>arrange() and mutate()</option> <option>group_by() and arrange()</option> <option>filter() and select()</option></select> functions.</p></li>
+<li><p>We want to order a dataframe of participants by the number of cats that they own, but want our new dataframe to only contain some of our columns. To do this we could use the <select class='solveme' data-answer='["mutate() and filter()","arrange() and select()"]'> <option></option> <option>select() and summarise()</option> <option>mutate() and filter()</option> <option>group_by() and mutate()</option> <option>arrange() and select()</option></select> functions.</p></li>
+</ul>
+</div>
+<div id="intro-to-plotting" class="section level3">
+<h3><span class="header-section-number">4.1.2</span> Intro to Plotting</h3>
+<p>Being able to visualise our variables, and relationships between our variables, is a very useful skill. Before we do any statistical analyses or present any summary statistics, visualising our variables is:</p>
+<ol style="list-style-type: decimal">
+<li><p>A quick and easy way to check our data make sense, and to identify any unusual trends.</p></li>
+<li><p>A way to honestly present the features of our data to anyone who reads our research.</p></li>
+</ol>
+<p>Plotting in R is especially easy and flexible, thanks to the tidyverse package, <code>ggplot2</code>. This lab will only cover the basics, but here is an example usage of <code>ggplot2</code> to plot some data:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(my_data, <span class="kw">aes</span>(<span class="dt">x =</span> height, <span class="dt">y =</span> weight)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>()</code></pre>
+<div class="figure" style="text-align: center">
+<img src="04-lab04_files/figure-html/sim_dat_plot-1.png" alt="Example plot of height by weight data." width="100%" />
+<p class="caption">
+(#fig:sim_dat_plot)Example plot of height by weight data.
+</p>
+</div>
+<ul>
+<li><p><code>ggplot()</code> creates the ggplot object, which puts our data in a form that <code>ggplot2</code> can understand.</p>
+<ul>
+<li><p><code>my_data</code> is the dataset. This contains the ages and heights of my participants. Each row is a different participant.</p></li>
+<li><p>The <code>aes()</code> function tells the plot which variables are plotted on which axes. On the x axis, we’ve put participants’ heights, and on the y axis, their weights.</p></li>
+</ul></li>
+<li><p><code>geom_point()</code> is a geom object which says what to actually do with all this information. Here, we tell ggplot2 to plot a point for each row (participant) in the dataset.</p></li>
+</ul>
+</div>
 </div>
 <div id="in-class-activities-3" class="section level2">
 <h2><span class="header-section-number">4.2</span> In-class activities</h2>
@@ -286,62 +325,88 @@ This is the last lab of semester 1 where the students willl work with data. Lab 
 <div id="activity-1-packages-and-data-1" class="section level3">
 <h3><span class="header-section-number">4.2.2</span> Activity 1: Packages and data</h3>
 <p>Open up tidyverse and read in data</p>
-<pre><code>## Parsed with column specification:
-## cols(
-##   .default = col_double()
-## )</code></pre>
-<pre><code>## See spec(...) for full column specifications.</code></pre>
-<pre><code>## Parsed with column specification:
-## cols(
-##   id = col_double(),
-##   intervention = col_double(),
-##   sex = col_double(),
-##   age = col_double(),
-##   educ = col_double(),
-##   income = col_double()
-## )</code></pre>
+<div class="solution">
+<button>
+Solution
+</button>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)
+dat &lt;-<span class="st"> </span><span class="kw">read_csv</span> (<span class="st">&#39;files/ahi-cesd.csv&#39;</span>)
+pinfo &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&#39;files/participant-info.csv&#39;</span>)
+all_dat &lt;-<span class="st"> </span><span class="kw">inner_join</span>(dat, pinfo, <span class="dt">by=</span><span class="st">&#39;id&#39;</span>, <span class="st">&#39;intervention&#39;</span>)
+summarydata &lt;-<span class="st"> </span><span class="kw">select</span>(all_dat, ahiTotal, cesdTotal, sex, age, educ, income, occasion, elapsed.days)</code></pre>
+</div>
 </div>
 <div id="activity-2-select-1" class="section level3">
 <h3><span class="header-section-number">4.2.3</span> Activity 2: Select</h3>
 <p>Select the columns all_dat, ahiTotal, cesdTotal, sex, age, educ, income, occasion, elapsed.days from the data and creat variable <code>summarydata</code>.</p>
+<div class="solution">
+<button>
+Solution
+</button>
 <pre class="sourceCode r"><code class="sourceCode r">summarydata &lt;-<span class="st"> </span><span class="kw">select</span>(all_dat, ahiTotal, cesdTotal, sex, age, educ, income, occasion, elapsed.days)</code></pre>
+</div>
 </div>
 <div id="activity-3-arrange-1" class="section level3">
 <h3><span class="header-section-number">4.2.4</span> Activity 3: Arrange</h3>
 <p>Arrange the data in the variable created above (<code>summarydata</code>) by ahiTotal with lowest score first.</p>
+<div class="solution">
+<button>
+Solution
+</button>
 <pre class="sourceCode r"><code class="sourceCode r">ahi_asc &lt;-<span class="st"> </span><span class="kw">arrange</span>(summarydata, <span class="dt">by =</span> ahiTotal)</code></pre>
+</div>
 </div>
 <div id="activity-4filter" class="section level3">
 <h3><span class="header-section-number">4.2.5</span> Activity 4:Filter</h3>
-<p>Filter the data <code>ahi_desc</code> by taking out those who are over 65 years of age.</p>
+<p>Filter the data <code>ahi_asc</code> by taking out those who are over 65 years of age.</p>
+<div class="solution">
+<button>
+Solution
+</button>
 <pre class="sourceCode r"><code class="sourceCode r">age_65max &lt;-<span class="st"> </span><span class="kw">filter</span>(ahi_asc, age <span class="op">&lt;</span><span class="st"> </span><span class="dv">65</span>)</code></pre>
+</div>
 </div>
 <div id="activity-5-group-and-summarise" class="section level3">
 <h3><span class="header-section-number">4.2.6</span> Activity 5: Group and summarise</h3>
 <p>Group the data stored in the variable <code>age_65max</code> by sex, and store it in <code>data_sex</code>.
-Then, use summarise to create a new variable <code>data_median</code>, which calculates the median ahiTotal score in this grouped data and assign it a table head called <code>median_score</code>.
-<em>(Hint: if you’re stuck, see …….).</em></p>
+Then, use summarise to create a new variable <code>data_median</code>, which calculates the median ahiTotal score in this grouped data and assign it a table head called <code>median_score</code>.</p>
+<p><em>(Hint: if you’re stuck, see <a href="https://dplyr.tidyverse.org/reference/group_by.html">this dplyr documentation</a>).</em></p>
+<div class="solution">
+<button>
+Solution
+</button>
 <pre class="sourceCode r"><code class="sourceCode r">data_sex &lt;-<span class="st"> </span><span class="kw">group_by</span>(age_65max, sex)
 data_median &lt;-<span class="st"> </span><span class="kw">summarise</span>(data_sex, <span class="dt">median_score =</span> <span class="kw">median</span>(ahiTotal))</code></pre>
+</div>
 </div>
 <div id="activity-6-mutate" class="section level3">
 <h3><span class="header-section-number">4.2.7</span> Activity 6: Mutate</h3>
 <p>Use mutate to create a new column called Happiness which categorises participants based on whether they score above or below the median ahiTotal score.</p>
+<div class="solution">
+<button>
+Solution
+</button>
 <pre class="sourceCode r"><code class="sourceCode r">happy &lt;-<span class="st"> </span><span class="kw">mutate</span>(data_sex, <span class="dt">Happiness =</span> (ahiTotal <span class="op">&gt;</span><span class="st"> </span><span class="dv">73</span>))</code></pre>
+</div>
 </div>
 <div id="the-importance-of-plotting" class="section level3">
 <h3><span class="header-section-number">4.2.8</span> The importance of plotting</h3>
-<p>We are now at the point where we can create a plot showing us some data. Why should we do this? This is an interesting thread from our colleagues Dr Guillaume Rousselet and Prof Lisa DeBruine on the reasons why we should use plots and the benefits of using ggplot, the package we will use today in RStudio, to create our plot: <a href="https://twitter.com/robustgar/status/1025342313004974080" class="uri">https://twitter.com/robustgar/status/1025342313004974080</a>
-And as Grolemund and Wickham tells us
-’Visualisation is a fundamentally human activity. A good visualisation will show you things that you did not expect, or raise new questions about the data. A good visualisation might also hint that you’re asking the wrong question, or you need to collect different data. Visualisations can surprise you, but don’t scale particularly well because they require a human to interpret them.`
+<p>We are now at the point where we can create a plot showing us some data. Why should we do this? This is an interesting thread from our colleagues Dr Guillaume Rousselet and Prof Lisa DeBruine on the reasons why we should use plots and the benefits of using ggplot, the package we will use today in RStudio, to create our plot: <a href="https://twitter.com/robustgar/status/1025342313004974080" class="uri">https://twitter.com/robustgar/status/1025342313004974080</a></p>
+<p>And as Grolemund and Wickham tells us:
+“Visualisation is a fundamentally human activity. A good visualisation will show you things that you did not expect, or raise new questions about the data. A good visualisation might also hint that you’re asking the wrong question, or you need to collect different data. Visualisations can surprise you, but don’t scale particularly well because they require a human to interpret them.”
 <a href="http://r4ds.had.co.nz/introduction.html" class="uri">http://r4ds.had.co.nz/introduction.html</a></p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> age_65max) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> ahiTotal , <span class="dt">y =</span> cesdTotal), <span class="dt">col=</span><span class="st">&quot;purple&quot;</span>) </code></pre>
+<div class="solution">
+<button>
+Solution
+</button>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> age_65max, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> ahiTotal , <span class="dt">y =</span> cesdTotal)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">col=</span><span class="st">&quot;purple&quot;</span>)</code></pre>
 <div class="figure" style="text-align: center"><span id="fig:createplot"></span>
 <img src="04-lab04_files/figure-html/createplot-1.png" alt="Happiness scores for participants aged less than 65 years" width="100%" />
 <p class="caption">
 Figure 4.1: Happiness scores for participants aged less than 65 years
 </p>
+</div>
 </div>
 <p>Great job! You have now worked with the essential basics of good practice in data wrangling! To show us how you have mastered this complete the assessment and submit by 12pm 1 week from your lab.</p>
 
