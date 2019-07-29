@@ -24,7 +24,7 @@
 <meta name="author" content="psyTeachR" />
 
 
-<meta name="date" content="2019-07-04" />
+<meta name="date" content="2019-07-29" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -142,9 +142,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2" data-path="lab-2.html"><a href="lab-2.html"><i class="fa fa-check"></i><b>2</b> Lab 2</a><ul>
 <li class="chapter" data-level="2.1" data-path="lab-2.html"><a href="lab-2.html#pre-class-activities"><i class="fa fa-check"></i><b>2.1</b> Pre-class activities</a><ul>
 <li class="chapter" data-level="2.1.1" data-path="lab-2.html"><a href="lab-2.html#activity-1-data-management"><i class="fa fa-check"></i><b>2.1.1</b> Activity 1: Data Management</a></li>
-<li class="chapter" data-level="2.1.2" data-path="lab-2.html"><a href="lab-2.html#activity-2-setting-the-working-directory."><i class="fa fa-check"></i><b>2.1.2</b> Activity 2: Setting the working directory.</a></li>
-<li class="chapter" data-level="2.1.3" data-path="lab-2.html"><a href="lab-2.html#important-information-on-our-homework-worksheets"><i class="fa fa-check"></i><b>2.1.3</b> Important information on our homework worksheets</a></li>
-<li class="chapter" data-level="2.1.4" data-path="lab-2.html"><a href="lab-2.html#take-home-message"><i class="fa fa-check"></i><b>2.1.4</b> Take home message</a></li>
+<li class="chapter" data-level="2.1.2" data-path="lab-2.html"><a href="lab-2.html#activity-2-setting-the-working-directory"><i class="fa fa-check"></i><b>2.1.2</b> Activity 2: Setting the working directory</a></li>
+<li class="chapter" data-level="2.1.3" data-path="lab-2.html"><a href="lab-2.html#activity-3-reading-and-writing-code"><i class="fa fa-check"></i><b>2.1.3</b> Activity 3: Reading and writing code</a></li>
+<li class="chapter" data-level="2.1.4" data-path="lab-2.html"><a href="lab-2.html#important-information-on-our-homework-worksheets"><i class="fa fa-check"></i><b>2.1.4</b> Important information on our homework worksheets</a></li>
+<li class="chapter" data-level="2.1.5" data-path="lab-2.html"><a href="lab-2.html#take-home-message"><i class="fa fa-check"></i><b>2.1.5</b> Take home message</a></li>
 </ul></li>
 <li class="chapter" data-level="2.2" data-path="lab-2.html"><a href="lab-2.html#in-class-activities-1"><i class="fa fa-check"></i><b>2.2</b> In-class activities</a><ul>
 <li class="chapter" data-level="2.2.1" data-path="lab-2.html"><a href="lab-2.html#getting-our-data-ready-to-work-with"><i class="fa fa-check"></i><b>2.2.1</b> <strong>Getting our data ready to work with</strong></a></li>
@@ -300,10 +301,10 @@ Figure 2.2: A tweet from Steph Allan
 </div>
 <p>Think of a skill you nailed the first time you did it. Not so easy? You will learn to work with data by repeating the essential basic skills over and over. It’s new and will take time. Give yourself credit for trying and don’t stress if it doesn’t work right away. Use the resources we give, that are being provided online among the open science community, and ask questions in class and on the forums. We are here to help!</p>
 </div>
-<div id="activity-2-setting-the-working-directory." class="section level3">
-<h3><span class="header-section-number">2.1.2</span> Activity 2: Setting the working directory.</h3>
+<div id="activity-2-setting-the-working-directory" class="section level3">
+<h3><span class="header-section-number">2.1.2</span> Activity 2: Setting the working directory</h3>
 <p>What this means is that we tell R where the files we need are located. Think of it just like when you have different subjects, and you have seperate folders for each topic e.g. biology, history and so on. When working on R, it’s useful to have all the data sets and files you need in one folder.</p>
-<p>To set the working directory press session -&gt; set working directory -&gt; choose directory and then select the folder where the data sets we are working on are saved, and save this file in the same folder as well. In other words- make sure your data sets and scripts are all in the same folder. Follow the pre-lab video to help you with this too. In the labs, we recommend that you create a folder for Psychology labs with sub-folders within for each lab in your M: drive. This is your personal area on the University network that is safe and secure so is much better than flashdrives or desktops.</p>
+<p>To set the working directory press session -&gt; set working directory -&gt; choose directory and then select the folder where the data sets we are working on are saved, and save this file in the same folder as well. In other words- make sure your data sets and scripts are all in the same folder. Follow the pre-lab video to help you with this too. In the labs, we recommend that you create a folder for Psychology labs with sub-folders within for each lab in your M: drive. This is your personal area on the University network that is safe and secure so is much better than flashdrives or desktops. You can access your M drive by logging into any computer on the University network.</p>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-5"></span>
 <img src="images/setwd.gif" alt="Setting your working directory" width="75%" height="75%" />
 <p class="caption">
@@ -311,10 +312,30 @@ Figure 2.3: Setting your working directory
 </p>
 </div>
 </div>
+<div id="activity-3-reading-and-writing-code" class="section level3">
+<h3><span class="header-section-number">2.1.3</span> Activity 3: Reading and writing code</h3>
+<p>Code consists of 4 building blocks:</p>
+<ul>
+<li><p><strong>Functions</strong> - Functions do something with an input (or “argument”), and return an output. An example is the function <code>read_csv()</code>, which takes a file ending with <code>.csv</code>, and returns the data in a form RStudio can understand. You can usually recognise functions by their use of brackets.</p></li>
+<li><p><strong>Arguments</strong> - Arguments are the input to functions. An example input to the function <code>read_csv()</code> might be <code>"mydata.csv"</code>. Functions can often take multiple arguments, and can be either named (e.g. <code>read_csv(file="mydata.csv")</code>) or unnamed <code>read_csv("mydata.csv")</code>.</p></li>
+<li><p><strong>Variables</strong> - Variables store information. When we run a function, we often want to store the output. For example, when might want to store the output of the <code>read_csv()</code> function in a variable called something like <code>experiment_data</code>.</p></li>
+<li><p><strong>Assignment</strong> - Assignment is how we send the output from a function to our variable. We can do this by drawing an arrow from the function to the variable we want to store the output in, with <code>&lt;-</code>.</p></li>
+</ul>
+<p>This means that to store some csv data in a variable in RStudio we would run something like:</p>
+<pre class="sourceCode r"><code class="sourceCode r">experiment_data &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&#39;experiment_data.csv&#39;</span>)</code></pre>
+<div id="quickfire-questions" class="section level4">
+<h4><span class="header-section-number">2.1.3.1</span> <span style="color:DARKGREEN"> Quickfire Questions</span></h4>
+<ul>
+<li><p>Which of the following is most likely to be an argument? <select class='solveme' data-answer='["35"]'> <option></option> <option>35</option> <option>&lt;-</option> <option>read_csv()</option></select></p></li>
+<li><p>An easy way to spot functions is to look for <select class='solveme' data-answer='["brackets"]'> <option></option> <option>computers</option> <option>brackets</option> <option>numbers</option></select>.</p></li>
+<li><p>The job of <code>&lt;-</code> is to send the output from the function to a/an <select class='solveme' data-answer='["variable"]'> <option></option> <option>argument</option> <option>variable</option> <option>assignment</option></select>.</p></li>
+</ul>
+</div>
+</div>
 <div id="important-information-on-our-homework-worksheets" class="section level3">
-<h3><span class="header-section-number">2.1.3</span> Important information on our homework worksheets</h3>
+<h3><span class="header-section-number">2.1.4</span> Important information on our homework worksheets</h3>
 <p>So that we can see your progress in data management skills we are using a worksheet format <strong>for the homework only</strong> called R Markdown (abbreviated as Rmd) which is a great way to create dynamic documents with embedded chunks of code. These documents are self-contained and fully reproducible which makes it very easy to share. This is an important part of your open science training as one of the reasons we are using RStudio is that it enables us to share open and reproducible information. The reason we are using these worksheets in this format is so that you are given a task and then can fill in the required code.</p>
-<p>For more information about R Markdown feel free to have a look at their main webpage sometime <a href="http://rmarkdown.rstudio.com" class="uri">http://rmarkdown.rstudio.com</a>. The key advantage of R Markdown is that it allows you to write code into a document, along with regular text, and then <em>‘knit’</em> it using the package <code>knitr</code> to create your document as either a webpage (HTML), a PDF, or Word document (.docx). <strong>Before submitting your homework file check that it knits OK to html then submit the .Rmd file, not the knitted html version</strong></p>
+<p>For more information about R Markdown feel free to have a look at their main webpage sometime <a href="http://rmarkdown.rstudio.com">http://rmarkdown.rstudio.com</a>. The key advantage of R Markdown is that it allows you to write code into a document, along with regular text, and then <em>‘knit’</em> it using the package <code>knitr</code> to create your document as either a webpage (HTML), a PDF, or Word document (.docx). <strong>Before submitting your homework file check that it knits OK to html then submit the .Rmd file, not the knitted html version</strong></p>
 <p>You won’t be creating webpages or other document types (unless you want to!) just yet but we want to tell you a little more about the format of these worksheets so you know how and why we are using them. It enables you to enter code after class for assessment. We can then use a program to mark these and return feedback to you. This is right in line with our ethos of open and reproducible science enabling us to show you a skill, let you try it, and then enable you to show us how good you are at it!</p>
 <p><strong>There are just a couple of important rules we need you to follow to make sure this all runs smoothly.</strong></p>
 <ol style="list-style-type: decimal">
@@ -337,17 +358,18 @@ Figure 2.3: Setting your working directory
 <p>These are called code chunks and are the part of the worksheet that we can read and pick out your answers. If you change these in any way we can’t read your answer and therefore we can’t give you marks. You can see in the example above that the code chunk (the grey zone), starts and ends with these back ticks (usually found on top left corner of the keyboard). This code chunk has the ticks and text which makes it the part of the worksheet that will contain code. The {r tidyverse} part tells us which task it is (e.g., loading in tidyverse) and therefore what we should be looking for and what we can give marks for - loading in the package called tidyverse in the example above. If this changes then it won’t be read properly, so will impact on your grade.</p>
 </div>
 <div id="take-home-message" class="section level3">
-<h3><span class="header-section-number">2.1.4</span> Take home message</h3>
+<h3><span class="header-section-number">2.1.5</span> Take home message</h3>
 <p>The easiest way to use our worksheets is to think of them as fill-in-the-blanks and keep the file names and names used in the worksheet the same. If you are unsure about anything then use the forums on Moodle and Slack to ask any questions and come along to the practice sessions. We have also made a short video about R Markdown and why we use it for our lab work which you can find in the prep section of lab 2 on Moodle. There is an R Markdown cheatsheet which will support you playing around with R Markdown which you can find here <a href="https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf" class="uri">https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf</a>.</p>
 </div>
 </div>
 <div id="in-class-activities-1" class="section level2">
 <h2><span class="header-section-number">2.2</span> In-class activities</h2>
 <p>Part of becoming a psychologist is asking questions and gathering data to enable you to answer these questions effectively. It is very important that we understand all aspects of the research process such as experimental design, ethics, data management and visualisation.</p>
-<p>In this class, you will be learning how to develop reproducible scripts. This means scripts that completely and transparently perform some analysis from start to finish in a way that yields the same result for different people using the same software on different computers. And transparency is a key value of science, as embodied in the “trust but verify” motto. When you do things reproducibly, others can understand and check your work. This benefits science, but there is a selfish reason, too: the most important person who will benefit from a reproducible script is your future self. When you return to an analysis after two weeks of vacation, you will thank your earlier self for doing things in a transparent, reproducible way, as you can easily pick up right where you left off. This is relevant within the context of open science which is a big debate in the scientific community at the moment. Some classic psychological experiments have been found to not be replicable. See the links below for some discussion on this topic:</p>
+<p>In this class, you will be learning how to develop reproducible scripts. This means scripts that completely and transparently perform some analysis from start to finish in a way that yields the same result for different people using the same software on different computers. And transparency is a key value of science, as embodied in the “trust but verify” motto. When you do things reproducibly, others can understand and check your work. This benefits science, but there is a selfish reason, too: the most important person who will benefit from a reproducible script is your future self. When you return to an analysis after two weeks of vacation, you will thank your earlier self for doing things in a transparent, reproducible way, as you can easily pick up right where you left off.</p>
+<p>The use of reproducible scripts is relevant within the context of open science which is a big debate in the scientific community at the moment. Some classic psychological experiments have been found to not be replicable. See the links below for some discussion on this topic:</p>
 <p><a href="https://www.theguardian.com/science/2015/aug/27/study-delivers-bleak-verdict-on-validity-of-psychology-experiment-results">Study delivers bleak verdict on validity of psychology experiment results</a></p>
 <p><a href="http://www.apa.org/science/about/psa/2015/09/low-replicability.aspx">Low replicability in psychological science</a></p>
-<p>As part of your skill development, it is very important that you work with data so that you can become confident and competent in your management and analysis of data. In the labs, we will work with real data that has been shared by other researchers. When we are working with data we will use software called RStudio <img src="images/RStudio.png" style="width:30px;">. Information about this software can be found here <a href="https://www.rstudio.com/">RStudio</a>. R Studio is available on the computers in the lab but is free to download onto your own devices. Guidance on how to do this can be found <a href="https://www.rstudio.com/products/rstudio/download/#download">RStudio download</a>. Remember to watch the prep video on RStudio for a tour around the interface with Heather.</p>
+<p>As part of your skill development, it is very important that you work with data so that you can become confident and competent in your management and analysis of data. In the labs, we will work with real data that has been shared by other researchers. When we are working with data we will use software called RStudio (<img src="images/RStudio_cropped.png" style="width:30px;">). Information about this software can be found <a href="https://www.rstudio.com/">here</a>. R Studio is available on the computers in the lab but is free to download onto your own devices. Guidance on how to do this can be found <a href="https://www.rstudio.com/products/rstudio/download/#download">RStudio download</a>. Remember to watch the prep video on RStudio for a tour around the interface with Heather.</p>
 <div id="getting-our-data-ready-to-work-with" class="section level3">
 <h3><span class="header-section-number">2.2.1</span> <strong>Getting our data ready to work with</strong></h3>
 <p>Today in the lab we will be working on loading libraries (opening the apps in the prep video) required to work with our data and then loading our data into RStudio before getting it organised into a sensible format that relates to our research question.</p>
