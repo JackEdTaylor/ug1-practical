@@ -9,6 +9,7 @@ This is the last lab of semester 1 where the students willl work with data. Lab 
 In this lab, we'll be recapping the tidyverse verbs we've learnt so far, and expanding integrating this knowledge with an introduction to plotting data. Why should we plot our data? Here is an interesting thread from our colleagues Dr Guillaume Rousselet and Prof Lisa DeBruine on the reasons why we should use plots and the benefits of using ggplot, the package we will use today in RStudio: https://twitter.com/robustgar/status/1025342313004974080
 
 ![](images/ggplot_thread.png)
+<br>
 
 As Grolemund and Wickham tell us:
 ```{block type="quote"}
@@ -38,9 +39,7 @@ Being able to visualise our variables, and relationships between our variables, 
 
 2. A way to honestly present the features of our data to anyone who reads our research.
 
-Plotting in R is especially easy and flexible, thanks to the tidyverse package, `ggplot2`. This lab will only cover the basics, but here is an example usage of `ggplot2` to plot some data:
-
-```{r sim_dat, echo=FALSE, message=FALSE}
+```{r sim dat, echo=FALSE, message=FALSE}
 sim_dat <- MASS::mvrnorm(100, mu = c(170, 75), Sigma = matrix(c(7.2, 0.975, 5.8, 0.975), nrow=2), empirical=TRUE)
 my_data <- tibble(
   height = sim_dat[,1],
@@ -48,14 +47,16 @@ my_data <- tibble(
 )
 ```
 
-```{r sim_dat_plot, fig.cap="Example plot of height by weight data."}
+Plotting in R is especially easy and flexible, thanks to the tidyverse package, `ggplot2`. This lab will only cover the basics, but here is an example usage of `ggplot2` to plot some data:
+
+```{r, fig.cap='Example plot of height by weight data'}
 ggplot(my_data, aes(x = height, y = weight)) +
   geom_point()
 ```
 
 * `ggplot()` creates the ggplot object, which puts our data in a form that `ggplot2` can understand.
 
-  + `my_data` is the dataset. This contains the ages and heights of my participants. Each row is a different participant.
+  + `my_data` is the dataset. This contains some (pretend) heights and weights of my participants. Each row is a different participant.
 
   + The `aes()` function tells the plot which variables are plotted on which axes. On the x axis, we've put participants' heights, and on the y axis, their weights.
 
@@ -162,5 +163,6 @@ ggplot(age_65max, aes(x = ahiTotal , y = cesdTotal)) +
 
 `r webex::unhide()`
 
+<br>
 
 Great job! You have now worked with the essential basics of good practice in data wrangling! To show us how you have mastered this complete the assessment and submit by 12pm 1 week from your lab. 
