@@ -12,7 +12,7 @@ library(knitr)
 
 ### What are pipes?
 
-Pipes in R look like this: `%>%`
+Pipes look like this: `%>%`
 
 Pipes are a handy feature of the tidyverse that allow you to send the output from one function straight into another function. Specifically, they send the result of the function before `%>%` to be the first argument of the function after `%>%`.
 
@@ -44,7 +44,7 @@ As you can see, pipes save us a lot of typing, and can make our code much more r
 
 Pipes might seem a little confusing at first - one way to make it easier to understand what your code is doing is to translate what your code is doing into English. You could pronounce `%>%` as `then`. For example, you might read the above code on the right (with pipes) as saying:
 
-"read the csv **then** select the columns `id`, `age`, and `score` **then** filter to only include ages of 18 or greater **then** arrange (sort) by `score`"
+"Read the csv **then** select the columns `id`, `age`, and `score` **then** filter to only include ages of 18 or greater **then** arrange (sort) by `score`".
 
 <br>
 ```{block, type = "danger"}
