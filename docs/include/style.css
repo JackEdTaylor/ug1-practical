@@ -18,3 +18,15 @@
   background-color: hsla(49, 87%, 70%, .1);
   border: 1px solid var(--yellow);
 }
+
+.left-float {
+  float: left;
+  width: 50%;
+  padding-right: 10px;
+}
+
+.right-float {
+  float: right;
+  width: 50%;
+  padding-left: 10px;
+}
