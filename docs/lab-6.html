@@ -330,8 +330,8 @@ When you’re completing assessments and we want you to save the output from a c
 </div>
 <div id="quickfire-questions-1" class="section level4">
 <h4><span class="header-section-number">6.1.1.1</span> <span style="color:DARKGREEN"> Quickfire Questions</span></h4>
-<p>Which of the following is a pipe? <select class='solveme' data-answer='["%>%"]'> <option></option> <option>&gt;</option> <option>%&gt;%</option> <option>&amp;</option> <option>==</option></select></p>
-<p>Where do pipes send the result of the function that precedes the pipe? <select class='solveme' data-answer='["To the first argument of the next function."]'> <option></option> <option>To the third argument of the 18th function.</option> <option>To the first argument of the next function.</option> <option>To the last argument of the next function.</option> <option>To Ibiza.</option></select></p>
+<p>Which of the following is a pipe? <select class='solveme' data-answer='["%>%"]'> <option></option> <option>&amp;</option> <option>%&gt;%</option> <option>&gt;</option> <option>==</option></select></p>
+<p>Where do pipes send the result of the function that precedes the pipe? <select class='solveme' data-answer='["To the first argument of the next function."]'> <option></option> <option>To Ibiza.</option> <option>To the first argument of the next function.</option> <option>To the last argument of the next function.</option> <option>To the third argument of the 18th function.</option></select></p>
 <p>Are pipes a super-cool feature of the tidyverse that makes your code more readable and less verbose? <select class='solveme' data-answer='["yes","yes","yes","yes"]'> <option></option> <option>yes</option> <option>yes</option> <option>yes</option> <option>yes</option></select></p>
 </div>
 </div>
@@ -371,6 +371,21 @@ Solution
 </button>
 <pre class="sourceCode r"><code class="sourceCode r">rlong &lt;-<span class="st"> </span><span class="kw">gather</span>(<span class="dt">data =</span> responses, <span class="dt">key =</span> Question, <span class="dt">value =</span> Response, Q1<span class="op">:</span>Q10)</code></pre>
 </div>
+<div class="solution">
+<button>
+What should it look like?
+</button>
+<p>The first few rows should look like this:</p>
+<pre><code>## # A tibble: 6 x 3
+##      Id Question Response           
+##   &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;              
+## 1    16 Q1       Slightly Disagree  
+## 2    17 Q1       Definitely Agree   
+## 3    18 Q1       Definitely Agree   
+## 4    19 Q1       Definitely Agree   
+## 5    20 Q1       Definitely Disagree
+## 6    21 Q1       Slightly Disagree</code></pre>
+</div>
 </div>
 <div id="activity-4-inner_join-qformat" class="section level3">
 <h3><span class="header-section-number">6.2.4</span> Activity 4: inner_join (QFormat)</h3>
@@ -385,6 +400,7 @@ Solution
 <button>
 What should it look like?
 </button>
+<p>The first few rows should look like this:</p>
 <pre><code>## # A tibble: 6 x 4
 ##      Id Question Response            QFormat
 ##   &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;               &lt;chr&gt;  
@@ -409,6 +425,7 @@ Solution
 <button>
 What should it look like?
 </button>
+<p>The first few rows should look like this:</p>
 <pre><code>## # A tibble: 6 x 5
 ##      Id Question Response            QFormat Score
 ##   &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;               &lt;chr&gt;   &lt;dbl&gt;
@@ -443,6 +460,7 @@ Solution
 <button>
 What should it look like?
 </button>
+<p>The first few rows should look like this:</p>
 <pre><code>## # A tibble: 6 x 2
 ##      Id    AQ
 ##   &lt;dbl&gt; &lt;dbl&gt;
