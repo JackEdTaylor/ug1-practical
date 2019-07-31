@@ -110,7 +110,7 @@ rlong <- gather(data = responses, key = Question, value = Response, Q1:Q10)
 
 The first few rows should look like this:
 
-```{r T4a, echo = FALSE}
+```{r T3a, echo = FALSE}
 head(rlong)
 ```
 
