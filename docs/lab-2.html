@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Lab 2 Lab 2 | Level 1 Data Skills</title>
+  <title>Chapter 2 Lab 2 | Level 1 Data Skills</title>
   <meta name="description" content="ug1-practical-materials" />
-  <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Lab 2 Lab 2 | Level 1 Data Skills" />
+  <meta property="og:title" content="Chapter 2 Lab 2 | Level 1 Data Skills" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Lab 2 Lab 2 | Level 1 Data Skills" />
+  <meta name="twitter:title" content="Chapter 2 Lab 2 | Level 1 Data Skills" />
   
   <meta name="twitter:description" content="ug1-practical-materials" />
   
@@ -55,6 +55,7 @@ a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
 a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
@@ -271,7 +272,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="lab-2" class="section level1">
-<h1><span class="header-section-number">Lab 2</span> Lab 2</h1>
+<h1><span class="header-section-number">Chapter 2</span> Lab 2</h1>
 <div class="info">
 <p>
 This is the first lab that the students will be introduced to R. The important point here is that R is introduced as a tool which will support their open science practices such as replicability and follows on from discussion in lab 1 about working with data effectively. We present the large messy data set in lab 1 to highlight the nature of work that students need to start thinking about before introducing R as the solution in lab 2.
@@ -324,12 +325,12 @@ Figure 2.3: Setting your working directory
 <li><p><strong>Assignment</strong> - Assignment is how we send the output from a function to our variable. We can do this by drawing an arrow from the function to the variable we want to store the output in, with <code>&lt;-</code>.</p></li>
 </ul>
 <p>This means that to store some csv data in a variable in RStudio we would run something like:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1">experiment_data &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&#39;experiment_data.csv&#39;</span>)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">experiment_data &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&#39;experiment_data.csv&#39;</span>)</code></pre>
 <div id="quickfire-questions" class="section level4">
 <h4><span class="header-section-number">2.1.3.1</span> <span style="color:DARKGREEN"> Quickfire Questions</span></h4>
 <ul>
-<li><p>Which of the following is most likely to be an argument? <select class='solveme' data-answer='["35"]'> <option></option> <option>35</option> <option>read_csv()</option> <option>&lt;-</option></select></p></li>
-<li><p>An easy way to spot functions is to look for <select class='solveme' data-answer='["brackets"]'> <option></option> <option>numbers</option> <option>brackets</option> <option>computers</option></select>.</p></li>
+<li><p>Which of the following is most likely to be an argument? <select class='solveme' data-answer='["35"]'> <option></option> <option>&lt;-</option> <option>35</option> <option>read_csv()</option></select></p></li>
+<li><p>An easy way to spot functions is to look for <select class='solveme' data-answer='["brackets"]'> <option></option> <option>computers</option> <option>brackets</option> <option>numbers</option></select>.</p></li>
 <li><p>The job of <code>&lt;-</code> is to send the output from the function to a/an <select class='solveme' data-answer='["variable"]'> <option></option> <option>argument</option> <option>variable</option> <option>assignment</option></select>.</p></li>
 </ul>
 </div>
@@ -344,17 +345,17 @@ Figure 2.3: Setting your working directory
 <li>These worksheets need to you fill in your answers and not change any other information. For example, if we ask you to replace NULL with your answer, only write in the code you are giving as your answer and nothing else. To illustrate -</li>
 </ol>
 <p><strong>Task 1 read in your data</strong></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1">data &lt;-<span class="st"> </span><span class="ot">NULL</span></a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">data &lt;-<span class="st"> </span><span class="ot">NULL</span></code></pre>
 <p>The task above is to read in the data file we are using for this task - the correct answer is <code>data &lt;- read_csv(data.csv)</code>. You would replace the NULL with:</p>
 <p><strong>Solution to Task 1</strong></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1">data &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data.csv&quot;</span>)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">data &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data.csv&quot;</span>)</code></pre>
 <p>This means that we can look for your code and if it is in the format we expect to see it in, we can give you the marks! If you decide to get all creative on us then we can’t give you the marks as ‘my_lab_Nov_2018.csv’ isn’t the filename we have given to you to use. So don’t change the file, variable or data frame names as we need these to be consistent.</p>
 <ol start="2" style="list-style-type: decimal">
 <li>We will look for your answers within the boxes which start and end with ``` and have {r task name} in them e.g. </li>
 </ol>
 <div class="verbatim">
 <p><code>```{r tidyverse, messages=FALSE}</code></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1"><span class="kw">library</span>(tidyverse)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)</code></pre>
 <code>```</code>
 </div>
 <p>These are called code chunks and are the part of the worksheet that we can read and pick out your answers. If you change these in any way we can’t read your answer and therefore we can’t give you marks. You can see in the example above that the code chunk (the grey zone), starts and ends with these back ticks (usually found on top left corner of the keyboard). This code chunk has the ticks and text which makes it the part of the worksheet that will contain code. The {r tidyverse} part tells us which task it is (e.g., loading in tidyverse) and therefore what we should be looking for and what we can give marks for - loading in the package called tidyverse in the example above. If this changes then it won’t be read properly, so will impact on your grade.</p>
@@ -384,7 +385,7 @@ Figure 2.3: Setting your working directory
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">library</span>(tidyverse)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)</code></pre>
 </div>
 </div>
 <div id="activity-2-read-in-data" class="section level3">
@@ -394,8 +395,8 @@ Solution
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1">dat &lt;-<span class="st"> </span><span class="kw">read_csv</span> (<span class="st">&#39;files/ahi-cesd.csv&#39;</span>)</a>
-<a class="sourceLine" id="cb6-2" title="2">pinfo &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&#39;files/participant-info.csv&#39;</span>)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">dat &lt;-<span class="st"> </span><span class="kw">read_csv</span> (<span class="st">&#39;files/ahi-cesd.csv&#39;</span>)
+pinfo &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&#39;files/participant-info.csv&#39;</span>)</code></pre>
 </div>
 </div>
 <div id="activity-3-join-the-files-together" class="section level3">
@@ -405,7 +406,7 @@ Solution
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1">all_dat &lt;-<span class="st"> </span><span class="kw">inner_join</span>(dat, pinfo, <span class="dt">by=</span><span class="st">&#39;id&#39;</span>, <span class="st">&#39;intervention&#39;</span>)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">all_dat &lt;-<span class="st"> </span><span class="kw">inner_join</span>(dat, pinfo, <span class="dt">by=</span><span class="st">&#39;id&#39;</span>, <span class="st">&#39;intervention&#39;</span>)</code></pre>
 </div>
 </div>
 <div id="activity-4-pull-out-variables-of-interest" class="section level3">
@@ -415,7 +416,7 @@ Solution
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1">summarydata &lt;-<span class="st"> </span><span class="kw">select</span>(all_dat, ahiTotal, cesdTotal, sex, age, educ, income, occasion, elapsed.days)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">summarydata &lt;-<span class="st"> </span><span class="kw">select</span>(all_dat, ahiTotal, cesdTotal, sex, age, educ, income, occasion, elapsed.days)</code></pre>
 </div>
 <p>Well done! You have started on your journey to become a confident and competent member of the open scientific community! To show us how competent you are you should now complete the assessment for this lab which follows the same instructions as this in-class activity but asks you to work with different variables. Always us the lab prep materials as well as what you do in class to help you complete the class assessments! Success through practice!</p>
 

@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Lab 3 Lab 3 | Level 1 Data Skills</title>
+  <title>Chapter 3 Lab 3 | Level 1 Data Skills</title>
   <meta name="description" content="ug1-practical-materials" />
-  <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Lab 3 Lab 3 | Level 1 Data Skills" />
+  <meta property="og:title" content="Chapter 3 Lab 3 | Level 1 Data Skills" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Lab 3 Lab 3 | Level 1 Data Skills" />
+  <meta name="twitter:title" content="Chapter 3 Lab 3 | Level 1 Data Skills" />
   
   <meta name="twitter:description" content="ug1-practical-materials" />
   
@@ -55,6 +55,7 @@ a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
 a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
@@ -271,7 +272,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="lab-3" class="section level1">
-<h1><span class="header-section-number">Lab 3</span> Lab 3</h1>
+<h1><span class="header-section-number">Chapter 3</span> Lab 3</h1>
 <div class="info">
 <p>
 In this lab we move on from reading data in, joining tibbles and selecting variables of interest to becoming familiar with the Wickham 6 and the functionality of tidyverse. Practice is an important part of PsyTeachR so in our level 1 program we ask students to repeat tasks across the semester in the pre-class, in-class and assessments. This principle is carried over into the student’s independent study practices. We encourage students to do prep independently but also to come along to the practice sessions where space is open for students to work on lab tasks and assessments independently or discuss in groups with GTAs present to guide and support if needed. This is an important part of our community building and creating a safe space to practice, make mistakes and develop skills. This lab also contains the first of a selection of short informal videos as support materials. For this lab, the course lead talks through the verbs demonstrating their functions with data in real time. As these videos were specific to our level 1 cohort we haven’t shared them here but should emphasise that they received very positive feedback from the students who liked being able to return to them as they practiced their tidyverse skills.
@@ -308,37 +309,37 @@ In this lab we move on from reading data in, joining tibbles and selecting varia
 <div id="activity-1-packages-and-data" class="section level3">
 <h3><span class="header-section-number">3.2.1</span> Activity 1: Packages and data</h3>
 <p>Open up tidyverse and read in the data</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" title="1"><span class="kw">library</span>(tidyverse)</a>
-<a class="sourceLine" id="cb9-2" title="2">dat &lt;-<span class="st"> </span><span class="kw">read_csv</span> (<span class="st">&#39;files/ahi-cesd.csv&#39;</span>)</a>
-<a class="sourceLine" id="cb9-3" title="3">pinfo &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&#39;files/participant-info.csv&#39;</span>)</a>
-<a class="sourceLine" id="cb9-4" title="4">all_dat &lt;-<span class="st"> </span><span class="kw">inner_join</span>(dat, pinfo, <span class="dt">by=</span><span class="st">&#39;id&#39;</span>, <span class="st">&#39;intervention&#39;</span>)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)
+dat &lt;-<span class="st"> </span><span class="kw">read_csv</span> (<span class="st">&#39;files/ahi-cesd.csv&#39;</span>)
+pinfo &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&#39;files/participant-info.csv&#39;</span>)
+all_dat &lt;-<span class="st"> </span><span class="kw">inner_join</span>(dat, pinfo, <span class="dt">by=</span><span class="st">&#39;id&#39;</span>, <span class="st">&#39;intervention&#39;</span>)</code></pre>
 <p>Now lets get busy using our tidyverse verbs…</p>
 </div>
 <div id="activity-2-select" class="section level3">
 <h3><span class="header-section-number">3.2.2</span> Activity 2: Select</h3>
 <p>Select the columns all_dat, ahiTotal, cesdTotal, sex, age, educ, income, occasion, elapsed.days from the data and create a variable called <code>summarydata</code>.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" title="1">summarydata &lt;-<span class="st"> </span><span class="kw">select</span>(all_dat, ahiTotal, cesdTotal, sex, age, educ, income, occasion, elapsed.days)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">summarydata &lt;-<span class="st"> </span><span class="kw">select</span>(all_dat, ahiTotal, cesdTotal, sex, age, educ, income, occasion, elapsed.days)</code></pre>
 </div>
 <div id="activity-3-arrange" class="section level3">
 <h3><span class="header-section-number">3.2.3</span> Activity 3: Arrange</h3>
 <p>Arrange the data in the variable created above (<code>summarydata</code>) by ahiTotal with lowest score first.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" title="1">ahi_asc &lt;-<span class="st"> </span><span class="kw">arrange</span>(summarydata, <span class="dt">by =</span> ahiTotal)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">ahi_asc &lt;-<span class="st"> </span><span class="kw">arrange</span>(summarydata, <span class="dt">by =</span> ahiTotal)</code></pre>
 </div>
 <div id="activity-4-filter" class="section level3">
 <h3><span class="header-section-number">3.2.4</span> Activity 4: Filter</h3>
 <p>Filter the data <code>ahi_desc</code> by taking out those who are over 65 years of age.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" title="1">age_65max &lt;-<span class="st"> </span><span class="kw">filter</span>(ahi_asc, age <span class="op">&lt;</span><span class="st"> </span><span class="dv">65</span>)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">age_65max &lt;-<span class="st"> </span><span class="kw">filter</span>(ahi_asc, age <span class="op">&lt;</span><span class="st"> </span><span class="dv">65</span>)</code></pre>
 </div>
 <div id="activity-5-summarise" class="section level3">
 <h3><span class="header-section-number">3.2.5</span> Activity 5: Summarise</h3>
 <p>Then, use summarise to create a new variable <code>data_median</code>, which calculates the median ahiTotal score in this grouped data and assign it a table head called <code>median_score</code>.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" title="1">data_median &lt;-<span class="st"> </span><span class="kw">summarise</span>(age_65max, <span class="dt">median_score =</span> <span class="kw">median</span>(ahiTotal))</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">data_median &lt;-<span class="st"> </span><span class="kw">summarise</span>(age_65max, <span class="dt">median_score =</span> <span class="kw">median</span>(ahiTotal))</code></pre>
 </div>
 <div id="activity-6-group_by" class="section level3">
 <h3><span class="header-section-number">3.2.6</span> Activity 6: Group_by</h3>
 <p>Group the data stored in the variable <code>age_65max</code> by sex, and store it in <code>data_sex</code> then use mutate to create a new column called Happiness which categorises participants based on whether they score above the median ahiTotal score for females.</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" title="1">data_sex &lt;-<span class="st"> </span><span class="kw">group_by</span>(age_65max, sex)</a>
-<a class="sourceLine" id="cb14-2" title="2">happy_female &lt;-<span class="st"> </span><span class="kw">mutate</span>(data_sex, <span class="dt">Happiness_Female =</span> (ahiTotal <span class="op">&gt;</span><span class="st"> </span><span class="dv">74</span>))</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">data_sex &lt;-<span class="st"> </span><span class="kw">group_by</span>(age_65max, sex)
+happy_female &lt;-<span class="st"> </span><span class="kw">mutate</span>(data_sex, <span class="dt">Happiness_Female =</span> (ahiTotal <span class="op">&gt;</span><span class="st"> </span><span class="dv">74</span>))</code></pre>
 
 </div>
 </div>

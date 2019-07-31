@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Lab 6 Lab 6 | Level 1 Data Skills</title>
+  <title>Chapter 6 Lab 6 | Level 1 Data Skills</title>
   <meta name="description" content="ug1-practical-materials" />
-  <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Lab 6 Lab 6 | Level 1 Data Skills" />
+  <meta property="og:title" content="Chapter 6 Lab 6 | Level 1 Data Skills" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Lab 6 Lab 6 | Level 1 Data Skills" />
+  <meta name="twitter:title" content="Chapter 6 Lab 6 | Level 1 Data Skills" />
   
   <meta name="twitter:description" content="ug1-practical-materials" />
   
@@ -55,6 +55,7 @@ a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
 a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
@@ -271,7 +272,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="lab-6" class="section level1">
-<h1><span class="header-section-number">Lab 6</span> Lab 6</h1>
+<h1><span class="header-section-number">Chapter 6</span> Lab 6</h1>
 <div class="info">
 <p>
 This lab builds on the skills developed to date by using pipes to join lines of previously used tidyverse verbs. In addition to the <strong>pre-class activity</strong>, you might find it useful to revisit previous in-class activities, assessments and feedback to recap skills developed to date.
@@ -281,7 +282,7 @@ This lab builds on the skills developed to date by using pipes to join lines of 
 <h2><span class="header-section-number">6.1</span> Pre-class activity</h2>
 <div id="what-are-pipes" class="section level3">
 <h3><span class="header-section-number">6.1.1</span> What are pipes?</h3>
-<p>Pipes in R look like this: <code>%&gt;%</code></p>
+<p>Pipes look like this: <code>%&gt;%</code></p>
 <p>Pipes are a handy feature of the tidyverse that allow you to send the output from one function straight into another function. Specifically, they send the result of the function before <code>%&gt;%</code> to be the first argument of the function after <code>%&gt;%</code>.</p>
 <p>Here’s an imaginary example showing how using pipes can simplify our code:</p>
 <p class="left-float" align="center">
@@ -291,24 +292,24 @@ This lab builds on the skills developed to date by using pipes to join lines of 
 <b>With Pipes</b>
 </p>
 <div class="left-float">
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb28-1" title="1"><span class="kw">library</span>(tidyverse)</a>
-<a class="sourceLine" id="cb28-2" title="2"></a>
-<a class="sourceLine" id="cb28-3" title="3">raw_data &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;my_data.csv&quot;</span>)</a>
-<a class="sourceLine" id="cb28-4" title="4">sel_data &lt;-<span class="st"> </span><span class="kw">select</span>(raw_data, id, age, score)</a>
-<a class="sourceLine" id="cb28-5" title="5">clean_data &lt;-<span class="st"> </span><span class="kw">filter</span>(sel_data, age <span class="op">&gt;=</span><span class="st"> </span><span class="dv">18</span>)</a>
-<a class="sourceLine" id="cb28-6" title="6">final_data &lt;-<span class="st"> </span><span class="kw">arrange</span>(clean_data, score)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)
+
+raw_data &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;my_data.csv&quot;</span>)
+sel_data &lt;-<span class="st"> </span><span class="kw">select</span>(raw_data, id, age, score)
+clean_data &lt;-<span class="st"> </span><span class="kw">filter</span>(sel_data, age <span class="op">&gt;=</span><span class="st"> </span><span class="dv">18</span>)
+final_data &lt;-<span class="st"> </span><span class="kw">arrange</span>(clean_data, score)</code></pre>
 </div>
 <div class="right-float">
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb29-1" title="1"><span class="kw">library</span>(tidyverse)</a>
-<a class="sourceLine" id="cb29-2" title="2"></a>
-<a class="sourceLine" id="cb29-3" title="3">final_data &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;my_data.csv&quot;</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb29-4" title="4"><span class="st">  </span><span class="kw">select</span>(id, age, score) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb29-5" title="5"><span class="st">  </span><span class="kw">filter</span>(age <span class="op">&gt;=</span><span class="st"> </span><span class="dv">18</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb29-6" title="6"><span class="st">  </span><span class="kw">arrange</span>(score)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)
+
+final_data &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;my_data.csv&quot;</span>) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">select</span>(id, age, score) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">filter</span>(age <span class="op">&gt;=</span><span class="st"> </span><span class="dv">18</span>) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">arrange</span>(score)</code></pre>
 </div>
 <p>As you can see, pipes save us a lot of typing, and can make our code much more readable. Thanks to pipes, we can also keep our environment clean of intermediary variables that we only ever use once (i.e., we have no need for the variables <code>raw_data</code>, <code>sel_data</code>, or <code>clean_data</code>; we just save the result straight to <code>final_data</code>).</p>
 <p>Pipes might seem a little confusing at first - one way to make it easier to understand what your code is doing is to translate what your code is doing into English. You could pronounce <code>%&gt;%</code> as <code>then</code>. For example, you might read the above code on the right (with pipes) as saying:</p>
-<p>“read the csv <strong>then</strong> select the columns <code>id</code>, <code>age</code>, and <code>score</code> <strong>then</strong> filter to only include ages of 18 or greater <strong>then</strong> arrange (sort) by <code>score</code>”</p>
+<p>“Read the csv <strong>then</strong> select the columns <code>id</code>, <code>age</code>, and <code>score</code> <strong>then</strong> filter to only include ages of 18 or greater <strong>then</strong> arrange (sort) by <code>score</code>”.</p>
 <br>
 <div class="danger">
 <p>
@@ -329,8 +330,8 @@ When you’re completing assessments and we want you to save the output from a c
 </div>
 <div id="quickfire-questions-1" class="section level4">
 <h4><span class="header-section-number">6.1.1.1</span> <span style="color:DARKGREEN"> Quickfire Questions</span></h4>
-<p>Which of the following is a pipe? <select class='solveme' data-answer='["%>%"]'> <option></option> <option>%&gt;%</option> <option>&amp;</option> <option>&gt;</option> <option>==</option></select></p>
-<p>Where do pipes send the result of the function that precedes the pipe? <select class='solveme' data-answer='["To the first argument of the next function."]'> <option></option> <option>To the third argument of the 18th function.</option> <option>To Ibiza.</option> <option>To the last argument of the next function.</option> <option>To the first argument of the next function.</option></select></p>
+<p>Which of the following is a pipe? <select class='solveme' data-answer='["%>%"]'> <option></option> <option>&gt;</option> <option>%&gt;%</option> <option>&amp;</option> <option>==</option></select></p>
+<p>Where do pipes send the result of the function that precedes the pipe? <select class='solveme' data-answer='["To the first argument of the next function."]'> <option></option> <option>To the third argument of the 18th function.</option> <option>To the first argument of the next function.</option> <option>To the last argument of the next function.</option> <option>To Ibiza.</option></select></p>
 <p>Are pipes a super-cool feature of the tidyverse that makes your code more readable and less verbose? <select class='solveme' data-answer='["yes","yes","yes","yes"]'> <option></option> <option>yes</option> <option>yes</option> <option>yes</option> <option>yes</option></select></p>
 </div>
 </div>
@@ -344,8 +345,8 @@ When you’re completing assessments and we want you to save the output from a c
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb30-1" title="1"><span class="co"># load in tidyverse by replacing this line</span></a>
-<a class="sourceLine" id="cb30-2" title="2"><span class="kw">library</span>(tidyverse)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># load in tidyverse by replacing this line</span>
+<span class="kw">library</span>(tidyverse)</code></pre>
 </div>
 </div>
 <div id="activity-2-read_csv" class="section level3">
@@ -355,9 +356,9 @@ Solution
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb31-1" title="1">responses &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;files/responses.csv&quot;</span>) </a>
-<a class="sourceLine" id="cb31-2" title="2">qformats &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;files/qformats.csv&quot;</span>) </a>
-<a class="sourceLine" id="cb31-3" title="3">scoring &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;files/scoring.csv&quot;</span>) </a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">responses &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;files/responses.csv&quot;</span>) 
+qformats &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;files/qformats.csv&quot;</span>) 
+scoring &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;files/scoring.csv&quot;</span>) </code></pre>
 </div>
 <p><strong>Checkpoint</strong> Has the data now appeared in the environment? Take a look and make sure each objects looks as you would expect it to. Does the data look the same as it did in the .csv files? Is it in the format ideal for analysis (see lab 1 in-class and lab 2 prep for a clue)?</p>
 </div>
@@ -368,7 +369,7 @@ Solution
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb32-1" title="1">rlong &lt;-<span class="st"> </span><span class="kw">gather</span>(<span class="dt">data =</span> responses, <span class="dt">key =</span> Question, <span class="dt">value =</span> Response, Q1<span class="op">:</span>Q10)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">rlong &lt;-<span class="st"> </span><span class="kw">gather</span>(<span class="dt">data =</span> responses, <span class="dt">key =</span> Question, <span class="dt">value =</span> Response, Q1<span class="op">:</span>Q10)</code></pre>
 </div>
 </div>
 <div id="activity-4-inner_join-qformat" class="section level3">
@@ -378,7 +379,7 @@ Solution
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb33-1" title="1">rlong2 &lt;-<span class="st"> </span><span class="kw">inner_join</span>(rlong, qformats, <span class="st">&quot;Question&quot;</span>)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">rlong2 &lt;-<span class="st"> </span><span class="kw">inner_join</span>(rlong, qformats, <span class="st">&quot;Question&quot;</span>)</code></pre>
 </div>
 <div class="solution">
 <button>
@@ -402,7 +403,7 @@ What should it look like?
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb35-1" title="1">rscores &lt;-<span class="st"> </span><span class="kw">inner_join</span>(rlong2, scoring, <span class="kw">c</span>(<span class="st">&quot;QFormat&quot;</span>, <span class="st">&quot;Response&quot;</span>))</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">rscores &lt;-<span class="st"> </span><span class="kw">inner_join</span>(rlong2, scoring, <span class="kw">c</span>(<span class="st">&quot;QFormat&quot;</span>, <span class="st">&quot;Response&quot;</span>))</code></pre>
 </div>
 <div class="solution">
 <button>
@@ -426,7 +427,7 @@ What should it look like?
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb37-1" title="1">aq_scores1 &lt;-<span class="st"> </span><span class="kw">group_by</span>(rscores, Id)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">aq_scores1 &lt;-<span class="st"> </span><span class="kw">group_by</span>(rscores, Id)</code></pre>
 </div>
 </div>
 <div id="activity-7-summarise" class="section level3">
@@ -436,7 +437,7 @@ Solution
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb38-1" title="1">aq_scores2 &lt;-<span class="st"> </span><span class="kw">summarise</span>(aq_scores1, <span class="dt">AQ =</span> <span class="kw">sum</span>(Score))</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">aq_scores2 &lt;-<span class="st"> </span><span class="kw">summarise</span>(aq_scores1, <span class="dt">AQ =</span> <span class="kw">sum</span>(Score))</code></pre>
 </div>
 <div class="solution">
 <button>
@@ -461,9 +462,9 @@ What should it look like?
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb40-1" title="1">aq_scores &lt;-<span class="st"> </span>rscores <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb40-2" title="2"><span class="st">  </span><span class="kw">group_by</span>(Id) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb40-3" title="3"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">AQ =</span> <span class="kw">sum</span>(Score))</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">aq_scores &lt;-<span class="st"> </span>rscores <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">group_by</span>(Id) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">AQ =</span> <span class="kw">sum</span>(Score))</code></pre>
 </div>
 <p><br>
 <strong>Checkpoint</strong> Does <code>aq_scores</code> look the same as <code>aq-scores2</code>? The code for activity 8 should do the same operations as activities 6 and 7, but in one step. As a result, <code>aq_scores</code> from activity 8 should be identical to <code>aq_scores2</code> from activity 7.</p>
@@ -475,8 +476,8 @@ Solution
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb41-1" title="1"><span class="kw">ggplot</span>(aq_scores, <span class="kw">aes</span>(AQ)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb41-2" title="2"><span class="st">  </span><span class="kw">geom_histogram</span>()</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(aq_scores, <span class="kw">aes</span>(AQ)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_histogram</span>()</code></pre>
 </div>
 <div class="solution">
 <button>
