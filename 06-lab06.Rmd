@@ -1,99 +1,223 @@
 # Lab 6
 
 ```{block, type = "info"}
-This lab builds on the skills developed to date by using pipes to join lines of previously used tidyverse verbs.  The **pre-class activity** for this lab is to revisit previous in-class activities, assessments and feedback to recap skills developed to date.
+This lab builds on the skills developed to date by using pipes to join lines of previously used tidyverse verbs.  In addition to the **pre-class activity**, you might find it useful to revisit previous in-class activities, assessments and feedback to recap skills developed to date.
 ```
 
 ```{r include = FALSE}
 library(knitr)
 ```
 
+## Pre-class activity
 
-## Inclass activities 
+### What are pipes?
+
+Pipes in R look like this: `%>%`
+
+Pipes are a handy feature of the tidyverse that allow you to send the output from one function straight into another function. Specifically, they send the result of the function before `%>%` to be the first argument of the function after `%>%`.
+
+Here's an imaginary example showing how using pipes can simplify our code:
+
+<p class='left-float' align='center'><b>Without Pipes</b></p>
+
+<p class='right-float' align='center'><b>With Pipes</b></p>
+
+```{r, eval=FALSE, class='left-float'}
+library(tidyverse)
+
+raw_data <- read_csv("my_data.csv")
+sel_data <- select(raw_data, id, age, score)
+clean_data <- filter(sel_data, age >= 18)
+final_data <- arrange(clean_data, score)
+```
+
+```{r, eval=FALSE, class='right-float'}
+library(tidyverse)
+
+final_data <- read_csv("my_data.csv") %>%
+  select(id, age, score) %>%
+  filter(age >= 18) %>%
+  arrange(score)
+```
+
+As you can see, pipes save us a lot of typing, and can make our code much more readable. Thanks to pipes, we can also keep our environment clean of intermediary variables that we only ever use once (i.e., we have no need for the variables `raw_data`, `sel_data`, or `clean_data`; we just save the result straight to `final_data`).
+
+Pipes might seem a little confusing at first - one way to make it easier to understand what your code is doing is to translate what your code is doing into English. You could pronounce `%>%` as `then`. For example, you might read the above code on the right (with pipes) as saying:
+
+"read the csv **then** select the columns `id`, `age`, and `score` **then** filter to only include ages of 18 or greater **then** arrange (sort) by `score`"
+
+<br>
+```{block, type = "danger"}
+As great as pipes are, there are two main cases when it probably makes sense to write your code without pipes, and save the results from each step to separate variables:
+
+1. When the output from a step partway through your pipeline is somehow useful. For example, you might want to check that a step worked as expected, or the information might be useful again later on.
+
+2. When you're completing assessments and we want you to save the output from a certain step to a specific variable name (we want to check that the step worked properly to be able to give you the mark!).
+```
+
+#### <span style="color:DARKGREEN"> Quickfire Questions</span>
+
+Which of the following is a pipe? `r mcq(sample(c(answer = "%>%", ">", "==", "&")))`
+
+Where do pipes send the result of the function that precedes the pipe? `r mcq(sample(c(answer = "To the first argument of the next function.", "To Ibiza.", "To the last argument of the next function.", "To the third argument of the 18th function.")))`
+
+Are pipes a super-cool feature of the tidyverse that makes your code more readable and less verbose? `r mcq(sample(c(answer = "yes", answer = "yes", answer = "yes", answer = "yes")))`
+
+## Inclass activities
 
 ### Activity  1: library 
+
 We are going to be working with the Autism Quotient (AQ) data which you have already been introduced to in lab 5 and in the pre-class for this lab. The relevant data required to use this data comes in 3 separate files; the survey responses 'responses.csv', the question formats 'qformats.csv' and scoring info 'scoring.csv'. To get us started, load in tidyverse.
+
+`r webex::hide()`
+
 ```{r T1, message = FALSE}
 # load in tidyverse by replacing this line
 library(tidyverse)
 ```
 
+`r webex::unhide()`
+
 ### Activity 2 : read_csv
+
 Read in the data to create the objects ```responses```, ```qformats``` and ```scoring``` using the corresponding data files for each tibble i.e. responses for the response data, qformats for the question formats and scoring for the scoring info.
+
+`r webex::hide()`
+
 ```{r T2, message = FALSE}
 responses <- read_csv("files/responses.csv") 
 qformats <- read_csv("files/qformats.csv") 
 scoring <- read_csv("files/scoring.csv") 
 ```
 
+`r webex::unhide()`
+
 **Checkpoint** Has the data now appeared in the environment? Take a look and make sure each objects looks as you would expect it to. Does the data look the same as it did in the .csv files? Is it in the format ideal for analysis (see lab 1 in-class and lab 2 prep for a clue)?
 
 ### Activity 3: gather
+
 Let's get this data into long format from wide format.Firstly, create ```rlong``` by using gather to show the question and response for each participant in long format (if you're struggling to understand gather, see lab 5 for more explanation about what each argument is doing).
+
+`r webex::hide()`
+
 ```{r T3}
 rlong <- gather(data = responses, key = Question, value = Response, Q1:Q10)
 ```
 
+`r webex::unhide()`
+
 ### Activity 4: inner_join (QFormat)
 Now use inner_join to add in the question format (QFormat) for each question and store it in ```rlong2```. This should now have 4 columns showing Id, Question, Response and QFormat.
+
+`r webex::hide()`
+
 ```{r T4}
 rlong2 <- inner_join(rlong, qformats, "Question")
 ```
+
+`r webex::unhide()`
+
+`r webex::hide("What should it look like?")`
 
 ```{r T4a, echo = FALSE}
 head(rlong2)
 ```
 
+`r webex::unhide()`
 
 ### Activity 5: inner_joint (scores)
+
 We can now get the score for each participant for each question. Use inner_join to add in the score for each question and store it in ```rscores```. 
+
+`r webex::hide()`
+
 ```{r T5}
 rscores <- inner_join(rlong2, scoring, c("QFormat", "Response"))
 ```
+
+`r webex::unhide()`
+
+`r webex::hide("What should it look like?")`
 
 ```{r T5a, echo = FALSE}
 head(rscores)
 ```
 
+`r webex::unhide()`
+
 ### Activity 6 - group_by
+
 To calculate the AQ score for each participant, firstly we need to group the scores by Id. Using the tibble `rscores` defined in task 5, group the AQ scores by Id and store it in aq_scores1.
+
+`r webex::hide()`
+
 ```{r Q6}
 aq_scores1 <- group_by(rscores, Id)
 ```
 
+`r webex::unhide()`
+
 ### Activity 7: summarise
+
 Now we have the scores grouped by Id, we can use summarise to calculate the sum of each question's score for each participant. Do this for ```aq_scores1``` and store it in ```aq_scores2```.  
+
+`r webex::hide()`
+
 ```{r Q7}
 aq_scores2 <- summarise(aq_scores1, AQ = sum(Score))
 ```
+
+`r webex::unhide()`
+
+`r webex::hide("What should it look like?")`
 
 ```{r T7a, echo = FALSE}
 head(aq_scores2)
 ```
 
+`r webex::unhide()`
 
 ### Actvity 8: pipes
-There is a more efficient way of calculating the AQ scores for each participant by combining the lines of code in tasks 6, 7 and 8 together into one tibble using pipes. *Using the tibble `rscores` defined in task 5*, calculate AQ scores for each participant. Name this table aq_scores (USE THIS EXACT NAME!)
+
+You might notice that we only actually use the tibble `aq_scores1` once, and it's not that useful to keep in our environment. Inspired by our new-found passion for pipes, we can actually complete activities 6 and 7 in one step!
+
+Starting with the tibble `rscores` (calculated in activity 5), use pipes to calculate the AQ scores for each participant. Name this tibble `aq_scores` (make sure not to overwrite `aq_scores1` or `aq_scores2`).
+
+`r webex::hide()`
+
 ```{r Q8}
 aq_scores <- rscores %>%
   group_by(Id) %>%
   summarise(AQ = sum(Score))
 ```
 
-**Checkpoint** Does ```aq_scores``` look the same as ```aq-scores2```?
+`r webex::unhide()`
 
-```{block, type = "try"}
-Pipes can be a little confusing at first - one way to make it easier to understand what your code is doing is to translate your code to full sentences. You should pronounce `%>%` as `then`. For example, you might read the the above code chunk as "take the data in the object `rscores`, then group it by `Id`, and then sum up the total `Score`.
-
-```
-
+<br>
+**Checkpoint** Does ```aq_scores``` look the same as ```aq-scores2```? The code for activity 8 should do the same operations as activities 6 and 7, but in one step. As a result, `aq_scores` from activity 8 should be identical to `aq_scores2` from activity 7.
 
 ### Activity 9: ggplot
+
 Finally, show the distribution of the overall AQ scores by producing a histogram from aq_scores.
-```{r Q9, message = FALSE, fig.cap = 'Autism Quotient Score distribution.'}
-## TODO: uncomment the following line, and replace it with your answer:
+
+`r webex::hide()`
+
+```{r Q9, message = FALSE, eval=FALSE, fig.cap = 'Autism Quotient Score distribution.'}
 ggplot(aq_scores, aes(AQ)) + 
   geom_histogram()
 ```
+
+`r webex::unhide()`
+
+`r webex::hide("What should it look like?")`
+
+```{r Q9a, message = FALSE, echo=FALSE, fig.cap = 'Autism Quotient Score distribution.'}
+ggplot(aq_scores, aes(AQ)) + 
+  geom_histogram()
+```
+
+`r webex::unhide()`
+
+<br>
 
 Well done! You should use this activity to help you complete the assessment to be submitted 1 week from your lab by 12pm. 
