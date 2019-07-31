@@ -106,6 +106,16 @@ rlong <- gather(data = responses, key = Question, value = Response, Q1:Q10)
 
 `r webex::unhide()`
 
+`r webex::hide("What should it look like?")`
+
+The first few rows should look like this:
+
+```{r T4a, echo = FALSE}
+head(rlong)
+```
+
+`r webex::unhide()`
+
 ### Activity 4: inner_join (QFormat)
 Now use inner_join to add in the question format (QFormat) for each question and store it in ```rlong2```. This should now have 4 columns showing Id, Question, Response and QFormat.
 
@@ -118,6 +128,8 @@ rlong2 <- inner_join(rlong, qformats, "Question")
 `r webex::unhide()`
 
 `r webex::hide("What should it look like?")`
+
+The first few rows should look like this:
 
 ```{r T4a, echo = FALSE}
 head(rlong2)
@@ -138,6 +150,8 @@ rscores <- inner_join(rlong2, scoring, c("QFormat", "Response"))
 `r webex::unhide()`
 
 `r webex::hide("What should it look like?")`
+
+The first few rows should look like this:
 
 ```{r T5a, echo = FALSE}
 head(rscores)
@@ -170,6 +184,8 @@ aq_scores2 <- summarise(aq_scores1, AQ = sum(Score))
 `r webex::unhide()`
 
 `r webex::hide("What should it look like?")`
+
+The first few rows should look like this:
 
 ```{r T7a, echo = FALSE}
 head(aq_scores2)
