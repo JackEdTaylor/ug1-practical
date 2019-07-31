@@ -8,13 +8,17 @@ This is a short tutorial with just a couple of quick questions on how the level 
 
 Levels of measurement can be categorised as either discrete or continuous:
 
-* **Discrete** data can only take integer values (whole numbers). For example, the number of participants in an experiment would be discrete - we can't have half a participant! Categorical variables, like handedness, can be similarly coded as integers (e.g. right handed = 0, left-handed = 1). Discrete variables can also be further broken down into nominal/categorical and ordinal variables.
-   + **Nominal/categorical data** is based on a set of categories but the ordering doesn't matter (e.g. left or right handed).
-   + **Ordinal data** is based on a set of *ordered* categories; you know which is the top/best and which is the worst/lowest, but not the difference between categories. For example, you could ask participants to rate the attractiveness of different faces based on a 5-item Likert scale (very unattractive, unattractive, neutral, attractive, very attractive).
+**Discrete Data**
 
-* **Continuous** data, on the other hand, can take any numeric value. For example, we can measure age on a continuous scale (e.g. we can have an age of 26.55 years). Other examples include reaction time or the distance you travel to university every day. Continuous variables can be further broken down into interval and ratio variables.
-   + **Interval** data is data which comes in the form of a numerical value where the difference between points is standardised and meaningful. For example temperature, the difference in temperature between 10-20 degrees is the same as the difference in temperature between 20-30 degrees.
-   + **Ratio** data is very like interval but has a true zero point. With our interval temperature example above, we have been experiencing negative temperatures (-1,-2 degrees) in Glasgow but with ratio data you don't see negative values such as these i.e. you can't be -10 cm tall.
+**Discrete** data can only take integer values (whole numbers). For example, the number of participants in an experiment would be discrete - we can't have half a participant! Categorical variables, like handedness, can be similarly coded as integers (e.g. right handed = 0, left-handed = 1). Discrete variables can also be further broken down into nominal/categorical and ordinal variables.
+* **Nominal/categorical data** is based on a set of categories but the ordering doesn't matter (e.g. left or right handed).
+* **Ordinal data** is based on a set of *ordered* categories; you know which is the top/best and which is the worst/lowest, but not the difference between categories. For example, you could ask participants to rate the attractiveness of different faces based on a 5-item Likert scale (very unattractive, unattractive, neutral, attractive, very attractive).
+
+**Continuous Data**
+
+**Continuous** data, on the other hand, can take any numeric value. For example, we can measure age on a continuous scale (e.g. we can have an age of 26.55 years). Other examples include reaction time or the distance you travel to university every day. Continuous variables can be further broken down into interval and ratio variables.
+* **Interval** data is data which comes in the form of a numerical value where the difference between points is standardised and meaningful. For example temperature, the difference in temperature between 10-20 degrees is the same as the difference in temperature between 20-30 degrees.
+* **Ratio** data is very like interval but has a true zero point. With our interval temperature example above, we have been experiencing negative temperatures (-1,-2 degrees) in Glasgow but with ratio data you don't see negative values such as these i.e. you can't be -10 cm tall.
 
 Here is a video with a useful summary on the differences between discrete and continuous data: [https://youtu.be/6IdJ1aPFDCs](https://youtu.be/6IdJ1aPFDCs).
 
